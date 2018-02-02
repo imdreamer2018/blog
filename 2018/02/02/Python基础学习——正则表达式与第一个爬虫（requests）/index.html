@@ -17,7 +17,7 @@
 <meta property="og:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/re.png">
-<meta property="og:updated_time" content="2018-02-02T08:11:26.163Z">
+<meta property="og:updated_time" content="2018-02-02T10:13:43.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
 <meta name="twitter:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
@@ -174,19 +174,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>关于第一个简单爬虫，利用requests库来实现<br>关于requests的安装：</p>
-<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br><a id="more"></a><br>import re<br>import urllib.request<br>import requests</p>
-<p>#　urllib.urlopen()方法用于打开一个URL地址。<br>req = urllib.request.urlopen(‘<a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a>‘)</p>
-<p>#read()方法用于读取URL上的数据<br>buf = req.read().decode()</p>
-<p>#decode bytes-&gt;str，encode str-&gt;bytes</p>
-<p>#re.findall() 方法读取buf中包含（正则表达式）的数据,并形成一个list<br>listurl = re.findall(r’src=\”(.*?.jpg)’,buf)<br>i=0<br>for  url in listurl:<br>    f = open(str(i)+’.jpg’,’wb’)<br>    url = ‘http:’ + url</p>
-<pre><code>#获取文本
-data = requests.get(url).text
-#下载图片等二进制文件
-data = requests.get(url).content
-f.write(data)
-f.close()
-i+=1
-</code></pre><p>以下是关于正则表达式的一些用法<br><img src="/images/re.png" alt=""></p>
+<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment">#　urllib.urlopen()方法用于打开一个URL地址。</span></span><br><span class="line">req = urllib.request.urlopen(<span class="string">'https://www.imooc.com/'</span>)</span><br><span class="line"><span class="comment">#read()方法用于读取URL上的数据</span></span><br><span class="line">buf = req.read().decode()</span><br><span class="line"><span class="comment">#decode bytes-&gt;str，encode str-&gt;bytes</span></span><br><span class="line"><span class="comment">#re.findall() 方法读取buf中包含（正则表达式）的数据,并形成一个list</span></span><br><span class="line">listurl = re.findall(<span class="string">r'src=\"(.*?\.jpg)'</span>,buf)</span><br><span class="line">i=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>  url <span class="keyword">in</span> listurl:</span><br><span class="line">    f = open(str(i)+<span class="string">'.jpg'</span>,<span class="string">'wb'</span>)</span><br><span class="line">    url = <span class="string">'http:'</span> + url</span><br><span class="line">    <span class="comment">#获取文本</span></span><br><span class="line">    data = requests.get(url).text</span><br><span class="line">    <span class="comment">#下载图片等二进制文件</span></span><br><span class="line">    data = requests.get(url).content</span><br><span class="line">    f.write(data)</span><br><span class="line">    f.close()</span><br><span class="line">    i+=<span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><br>以下是关于正则表达式的一些用法<br><img src="/images/re.png" alt=""></p>
 
       
 
