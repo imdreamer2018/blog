@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>追梦人的博客</title>
+  <title>python基础学习——利用Flask实现一个简单博客 | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="追梦人的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="python基础学习——利用Flask实现一个简单博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础学习——利用Flask实现一个简单博客">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/python基础学习——利用Flask实现一个简单博客/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:description" content="python基础学习——利用Flask实现一个简单博客">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-02T13:55:44.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="追梦人的博客">
-<meta name="twitter:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta name="twitter:title" content="python基础学习——利用Flask实现一个简单博客">
+<meta name="twitter:description" content="python基础学习——利用Flask实现一个简单博客">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -149,16 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python基础学习——利用Flask实现一个简单博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-python基础学习——利用Flask实现一个简单博客" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/python基础学习——利用Flask实现一个简单博客/">python基础学习——利用Flask实现一个简单博客</a>
+    <h1 class="article-title" itemprop="name">
+      python基础学习——利用Flask实现一个简单博客
     </h1>
   
 
@@ -171,10 +170,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python基础学习——利用Flask实现一个简单博客<br>
-        
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用Flask实现一个简单博客/#more">more >></a>
-        
+        <p>python基础学习——利用Flask实现一个简单博客<br><a id="more"></a><br><b>1,pythonweb.py</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, session, g, redirect, url_for, abort, render_template, flash</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#显示视图</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_entries</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select title,text from entries  order by id desc "</span></span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    entries = [dict(title=row[<span class="number">0</span>],text=row[<span class="number">1</span>]) <span class="keyword">for</span> row <span class="keyword">in</span> cursor.fetchall()]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'show_entries.html'</span>,entries=entries)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加视图</span></span><br><span class="line"><span class="meta">@app.route('/add',methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_entry</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span>  session[<span class="string">"logged_in"</span>] ==<span class="keyword">True</span>:</span><br><span class="line">        cursor = conn.cursor()</span><br><span class="line">        sql = <span class="string">"insert into  entries(title,text) values('%s','%s')"</span> % (request.form[<span class="string">'title'</span>],request.form[<span class="string">'text'</span>])</span><br><span class="line">        cursor.execute(sql)</span><br><span class="line">        conn.commit()</span><br><span class="line">        flash(<span class="string">'New entry was successful posted'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        flash(<span class="string">'You are not login !'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'login'</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login1')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"login.html"</span>)</span><br><span class="line"><span class="comment">#登陆与注销</span></span><br><span class="line"><span class="meta">@app.route('/login',methods=['post'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select * from user where username='%s' and password = '%s' "</span>%(request.form[<span class="string">'username'</span>], request.form[<span class="string">'password'</span>])</span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    rs = cursor.fetchall()</span><br><span class="line">    <span class="keyword">if</span> len(rs)!=<span class="number">1</span>:</span><br><span class="line">        error = <span class="string">'Invalid username and password'</span></span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, error=error)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        session[<span class="string">"logged_in"</span>] =<span class="keyword">True</span></span><br><span class="line">        flash(<span class="string">'You are logged in'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/logout')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">()</span>:</span></span><br><span class="line">    session[<span class="string">'logged_in'</span>]=<span class="keyword">False</span></span><br><span class="line">    flash(<span class="string">'You are logged out'</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line">    host = <span class="string">'********'</span>,</span><br><span class="line">    port = <span class="number">3306</span>,</span><br><span class="line">    user = <span class="string">'root'</span>,</span><br><span class="line">    passwd = <span class="string">'**********'</span>,</span><br><span class="line">    db = <span class="string">'python'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug =<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -185,16 +182,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用Flask实现一个简单博客/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/02/python基础学习——利用Flask实现一个简单博客/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基础学习——利用requests与bs4来定向爬取中国大学排名</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,226 +270,14 @@
 
 
 
-
   
-    <article id="post-python基础学习——利用requests与bs4来定向爬取中国大学排名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/">python基础学习——利用requests与bs4来定向爬取中国大学排名</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/" class="archive-article-date">
-  	<time datetime="2018-02-02T13:31:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python基础学习——利用requests与bs4来定向爬取中国大学排名<br>
-        
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基于python3-6连接mysql，实现一个银行转账的小功能（源码）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/"> 基于python3.6连接mysql，实现一个银行转账的小功能（源码）</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" class="archive-article-date">
-  	<time datetime="2018-02-02T08:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于python3.6连接mysql，实现一个银行转账的小功能（源码）<br>
-        
-          <a class="article-more-a" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python基础学习——正则表达式与第一个爬虫（requests）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/"> Python基础学习——正则表达式与第一个爬虫（requests）</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
-  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于第一个简单爬虫，利用requests库来实现<br>关于requests的安装：</p>
-<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br>
-        
-          <a class="article-more-a" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -456,8 +300,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
