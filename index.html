@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>imdreamer</title>
+  <title>追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="imdreamer">
+  <meta name="description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="追梦人的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="imdreamer">
+<meta property="og:site_name" content="追梦人的博客">
+<meta property="og:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="imdreamer">
+<meta name="twitter:title" content="追梦人的博客">
+<meta name="twitter:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
   
-    <link rel="alternative" href="/atom.xml" title="imdreamer" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -155,36 +159,42 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python基础学习——正则表达式与第一个爬虫（requests）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/"> Python基础学习——正则表达式与第一个爬虫（requests）</a>
     </h1>
   
 
         
-        <a href="/2018/02/02/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-02T06:07:09.094Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+        <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
+  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>以上是关于正则表达式的一些用法</p>
+<p>关于第一个简单爬虫，利用requests库来实现</p>
+<p>关于requests的安装：</p>
+<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br>import re<br>import urllib.request<br>import requests</p>
+<p>#　urllib.urlopen()方法用于打开一个URL地址。<br>req = urllib.request.urlopen(‘<a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a>‘)</p>
+<p>#read()方法用于读取URL上的数据<br>buf = req.read().decode()</p>
+<p>#decode bytes-&gt;str，encode str-&gt;bytes</p>
+<p>#re.findall() 方法读取buf中包含（正则表达式）的数据,并形成一个list<br>listurl = re.findall(r’src=\”(.*?.jpg)’,buf)<br>i=0<br>for  url in listurl:<br>    f = open(str(i)+’.jpg’,’wb’)<br>    url = ‘http:’ + url</p>
+<pre><code>#获取文本
+data = requests.get(url).text
+#下载图片等二进制文件
+data = requests.get(url).content
+f.write(data)
+f.close()
+i+=1
+</code></pre>
       
 
       
@@ -196,7 +206,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/">展开全文 >></a>
         </p>
       
 

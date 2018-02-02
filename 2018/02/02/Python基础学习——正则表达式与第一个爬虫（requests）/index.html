@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 追梦人的博客</title>
+  <title> Python基础学习——正则表达式与第一个爬虫（requests） | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="追梦人的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-02T07:17:26.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="追梦人的博客">
-<meta name="twitter:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta name="twitter:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
+<meta name="twitter:description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -157,49 +158,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python基础学习——正则表达式与第一个爬虫（requests）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
-  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/"> Python基础学习——正则表达式与第一个爬虫（requests）</a>
+    <h1 class="article-title" itemprop="name">
+       Python基础学习——正则表达式与第一个爬虫（requests）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
+  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以上是关于正则表达式的一些用法</p>
+<p>关于第一个简单爬虫，利用requests库来实现</p>
+<p>关于requests的安装：</p>
+<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br>import re<br>import urllib.request<br>import requests</p>
+<p>#　urllib.urlopen()方法用于打开一个URL地址。<br>req = urllib.request.urlopen(‘<a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a>‘)</p>
+<p>#read()方法用于读取URL上的数据<br>buf = req.read().decode()</p>
+<p>#decode bytes-&gt;str，encode str-&gt;bytes</p>
+<p>#re.findall() 方法读取buf中包含（正则表达式）的数据,并形成一个list<br>listurl = re.findall(r’src=\”(.*?.jpg)’,buf)<br>i=0<br>for  url in listurl:<br>    f = open(str(i)+’.jpg’,’wb’)<br>    url = ‘http:’ + url</p>
+<pre><code>#获取文本
+data = requests.get(url).text
+#下载图片等二进制文件
+data = requests.get(url).content
+f.write(data)
+f.close()
+i+=1
+</code></pre>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -222,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
