@@ -8,17 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title> Python基础学习——正则表达式与第一个爬虫（requests） | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
+  <meta name="description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
 <meta property="og:url" content="http://yoursite.com/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
+<meta property="og:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T07:17:26.304Z">
+<meta property="og:image" content="http://yoursite.com/images/re.png">
+<meta property="og:updated_time" content="2018-02-02T08:11:26.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
-<meta name="twitter:description" content="以上是关于正则表达式的一些用法 关于第一个简单爬虫，利用requests库来实现 关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip in">
+<meta name="twitter:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
+<meta name="twitter:image" content="http://yoursite.com/images/re.png">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -47,7 +50,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/img/myicon.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Imdreamer</a></h1>
@@ -61,7 +64,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/python/">Python</a></li>
 	        
 			</ul>
 		</nav>
@@ -83,13 +86,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/imdreamer2018" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="/imdreamer.yq@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -107,7 +106,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/img/myicon.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Imdreamer</h1>
@@ -126,13 +125,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/imdreamer2018" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="/imdreamer.yq@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -143,7 +138,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/python/">Python</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,10 +173,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以上是关于正则表达式的一些用法</p>
-<p>关于第一个简单爬虫，利用requests库来实现</p>
-<p>关于requests的安装：</p>
-<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br>import re<br>import urllib.request<br>import requests</p>
+        <p>关于第一个简单爬虫，利用requests库来实现<br>关于requests的安装：</p>
+<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br><a id="more"></a><br>import re<br>import urllib.request<br>import requests</p>
 <p>#　urllib.urlopen()方法用于打开一个URL地址。<br>req = urllib.request.urlopen(‘<a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a>‘)</p>
 <p>#read()方法用于读取URL上的数据<br>buf = req.read().decode()</p>
 <p>#decode bytes-&gt;str，encode str-&gt;bytes</p>
@@ -193,35 +186,26 @@ data = requests.get(url).content
 f.write(data)
 f.close()
 i+=1
-</code></pre>
-      
+</code></pre><p>以下是关于正则表达式的一些用法<br><img src="/images/re.png" alt=""></p>
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+
       
     </div>
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -402,6 +386,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -452,27 +440,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
             </li>
           
         </ul>
@@ -483,7 +451,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;我只是一个刚刚开始学Python的渣渣&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     
