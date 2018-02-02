@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>追梦人的博客</title>
+  <title>python基础学习——利用requests与bs4来定向爬取中国大学排名 | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="追梦人的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="python基础学习——利用requests与bs4来定向爬取中国大学排名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础学习——利用requests与bs4来定向爬取中国大学排名">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:description" content="python基础学习——利用requests与bs4来定向爬取中国大学排名">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-02T13:37:59.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="追梦人的博客">
-<meta name="twitter:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta name="twitter:title" content="python基础学习——利用requests与bs4来定向爬取中国大学排名">
+<meta name="twitter:description" content="python基础学习——利用requests与bs4来定向爬取中国大学排名">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -149,16 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python基础学习——利用requests与bs4来定向爬取中国大学排名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-python基础学习——利用requests与bs4来定向爬取中国大学排名" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/">python基础学习——利用requests与bs4来定向爬取中国大学排名</a>
+    <h1 class="article-title" itemprop="name">
+      python基础学习——利用requests与bs4来定向爬取中国大学排名
     </h1>
   
 
@@ -171,10 +170,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python基础学习——利用requests与bs4来定向爬取中国大学排名<br>
-        
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/#more">more >></a>
-        
+        <p>python基础学习——利用requests与bs4来定向爬取中国大学排名<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fillUnivList</span><span class="params">(ulist,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(html,<span class="string">"html.parser"</span>)</span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> tr <span class="keyword">in</span> soup.find(<span class="string">'tbody'</span>).children:</span><br><span class="line">            <span class="keyword">if</span> isinstance(tr,bs4.element.Tag):</span><br><span class="line">                tds = tr(<span class="string">'td'</span>)</span><br><span class="line">                ulist.append([i,tds[<span class="number">1</span>].string,tds[<span class="number">3</span>].string])</span><br><span class="line">                i=i+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printUnivList</span><span class="params">(ulist,num)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        tplt = <span class="string">"&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;"</span></span><br><span class="line">        print(tplt.format(<span class="string">"排名"</span>,<span class="string">"学校名称"</span>,<span class="string">"总分"</span>,chr(<span class="number">12288</span>)))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">            u = ulist[i]</span><br><span class="line">            print(tplt.format(u[<span class="number">0</span>],u[<span class="number">1</span>],u[<span class="number">2</span>],chr(<span class="number">12288</span>)))</span><br><span class="line"></span><br><span class="line">        print(<span class="string">"Suc"</span>+str(num))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">"__main__"</span>:</span><br><span class="line">    uinfo = []</span><br><span class="line">    url = <span class="string">"http://www.zuihaodaxue.cn/zuihaodaxuepaiming2017.html"</span></span><br><span class="line">    html = getHTMLText(url)</span><br><span class="line"></span><br><span class="line">    fillUnivList(uinfo,html)</span><br><span class="line">    printUnivList(uinfo,<span class="number">20</span>)</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -185,16 +182,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> 基于python3.6连接mysql，实现一个银行转账的小功能（源码）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,161 +270,14 @@
 
 
 
-
   
-    <article id="post-基于python3-6连接mysql，实现一个银行转账的小功能（源码）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/"> 基于python3.6连接mysql，实现一个银行转账的小功能（源码）</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" class="archive-article-date">
-  	<time datetime="2018-02-02T08:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于python3.6连接mysql，实现一个银行转账的小功能（源码）<br>
-        
-          <a class="article-more-a" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python基础学习——正则表达式与第一个爬虫（requests）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/"> Python基础学习——正则表达式与第一个爬虫（requests）</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
-  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于第一个简单爬虫，利用requests库来实现<br>关于requests的安装：</p>
-<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br>
-        
-          <a class="article-more-a" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -391,8 +300,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
