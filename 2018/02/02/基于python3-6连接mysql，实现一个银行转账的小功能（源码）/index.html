@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title> Python基础学习——正则表达式与第一个爬虫（requests） | 追梦人的博客</title>
+  <title> 基于python3.6连接mysql，实现一个银行转账的小功能（源码） | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
+  <meta name="description" content="基于python3.6连接mysql，实现一个银行转账的小功能（源码）">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
-<meta property="og:url" content="http://yoursite.com/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/index.html">
+<meta property="og:title" content=" 基于python3.6连接mysql，实现一个银行转账的小功能（源码）">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
+<meta property="og:description" content="基于python3.6连接mysql，实现一个银行转账的小功能（源码）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/re.png">
-<meta property="og:updated_time" content="2018-02-02T08:11:26.163Z">
+<meta property="og:updated_time" content="2018-02-02T08:49:55.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" Python基础学习——正则表达式与第一个爬虫（requests）">
-<meta name="twitter:description" content="关于第一个简单爬虫，利用requests库来实现关于requests的安装： 安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装">
-<meta name="twitter:image" content="http://yoursite.com/images/re.png">
+<meta name="twitter:title" content=" 基于python3.6连接mysql，实现一个银行转账的小功能（源码）">
+<meta name="twitter:description" content="基于python3.6连接mysql，实现一个银行转账的小功能（源码）">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -153,40 +151,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python基础学习——正则表达式与第一个爬虫（requests）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-基于python3-6连接mysql，实现一个银行转账的小功能（源码）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-       Python基础学习——正则表达式与第一个爬虫（requests）
+       基于python3.6连接mysql，实现一个银行转账的小功能（源码）
     </h1>
   
 
         
-        <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" class="archive-article-date">
-  	<time datetime="2018-02-02T06:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+        <a href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" class="archive-article-date">
+  	<time datetime="2018-02-02T08:34:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>关于第一个简单爬虫，利用requests库来实现<br>关于requests的安装：</p>
-<p>安装很简单，我是win系统，就在这里下载了安装包（网页中download the zipball处链接），然后$ python setup.py install就装好了。<br>当然，有easy_install或pip的朋友可以直接使用：easy_install requests或者pip install requests来安装。<br>至于linux用户，这个页面还有其他安装方法。<br>测试：在IDLE中输入import requests，如果没提示错误，那说明已经安装成功了！<br><a id="more"></a><br>import re<br>import urllib.request<br>import requests</p>
-<p>#　urllib.urlopen()方法用于打开一个URL地址。<br>req = urllib.request.urlopen(‘<a href="https://www.imooc.com/" target="_blank" rel="noopener">https://www.imooc.com/</a>‘)</p>
-<p>#read()方法用于读取URL上的数据<br>buf = req.read().decode()</p>
-<p>#decode bytes-&gt;str，encode str-&gt;bytes</p>
-<p>#re.findall() 方法读取buf中包含（正则表达式）的数据,并形成一个list<br>listurl = re.findall(r’src=\”(.*?.jpg)’,buf)<br>i=0<br>for  url in listurl:<br>    f = open(str(i)+’.jpg’,’wb’)<br>    url = ‘http:’ + url</p>
-<pre><code>#获取文本
-data = requests.get(url).text
-#下载图片等二进制文件
-data = requests.get(url).content
-f.write(data)
-f.close()
-i+=1
-</code></pre><p>以下是关于正则表达式的一些用法<br><img src="/images/re.png" alt=""></p>
+        <p>基于python3.6连接mysql，实现一个银行转账的小功能（源码）<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TransferMoney</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,conn)</span>:</span></span><br><span class="line">        self.conn = conn</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_acct_available</span><span class="params">(self,acctid)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"select * from account where acctid = %s"</span> %acctid</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"check_acct_available"</span>+sql)</span><br><span class="line">            rs = cursor.fetchall()</span><br><span class="line">            <span class="keyword">if</span> len(rs) !=<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s is not exist"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_enough_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"select * from account where acctid = %s and money&gt;= %s"</span> % (acctid,money)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"has_enough_money"</span> + sql)</span><br><span class="line">            rs = cursor.fetchall()</span><br><span class="line">            <span class="keyword">if</span> len(rs) != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s does't have enough money"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reduce_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"update account set money = money - %s where acctid = %s"</span> % (money,acctid)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"reduce_money"</span> + sql)</span><br><span class="line">            rs = cursor.rowcount</span><br><span class="line">            <span class="keyword">if</span> rs != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s transfer is't successful"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"update account set money = money + %s where acctid = %s"</span> % (money,acctid)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"add_money"</span> + sql)</span><br><span class="line">            rs = cursor.rowcount</span><br><span class="line">            <span class="keyword">if</span> rs != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s transfer is't successful"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">transfer</span><span class="params">(self,source_acctid, target_acctid, money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.check_acct_available(source_acctid)</span><br><span class="line">            self.check_acct_available(target_acctid)</span><br><span class="line">            self.has_enough_money(source_acctid,money)</span><br><span class="line">            self.reduce_money(source_acctid,money)</span><br><span class="line">            self.add_money(target_acctid,money)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            self.conn.rollback()</span><br><span class="line">            <span class="keyword">raise</span> e</span><br><span class="line"><span class="comment">#if __name__ == "__main__":</span></span><br><span class="line">    <span class="comment">#source_acctid = sys.argv[1]</span></span><br><span class="line">    <span class="comment">#target_acctid = sys.argv[2]</span></span><br><span class="line">    <span class="comment">#money = sys.argv[3]</span></span><br><span class="line"></span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line">    host = <span class="string">'*******'</span>,</span><br><span class="line">    port =<span class="number">3306</span>,</span><br><span class="line">    user = <span class="string">'root'</span>,</span><br><span class="line">    passwd = <span class="string">'*************'</span>,</span><br><span class="line">    db = <span class="string">'python'</span></span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">source_acctid = int(input(<span class="string">"Input source_acctid"</span>))</span><br><span class="line">target_acctid = int(input(<span class="string">"Input target_acctid"</span>))</span><br><span class="line">money = int(input(<span class="string">"Input tansfer money "</span>))</span><br><span class="line">tr_money = TransferMoney(conn)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    tr_money.transfer(source_acctid,target_acctid,money)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"raise Error"</span>+str(e))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    conn.close()</span><br><span class="line">	</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -256,7 +241,7 @@ i+=1
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -270,15 +255,11 @@ i+=1
   
 <nav id="article-nav">
   
-    <a href="/2018/02/02/基于python3-6连接mysql，实现一个银行转账的小功能（源码）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-           基于python3.6连接mysql，实现一个银行转账的小功能（源码）
-        
-      </div>
-    </a>
   
+    <a href="/2018/02/02/Python基础学习——正则表达式与第一个爬虫（requests）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"> Python基础学习——正则表达式与第一个爬虫（requests）</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
