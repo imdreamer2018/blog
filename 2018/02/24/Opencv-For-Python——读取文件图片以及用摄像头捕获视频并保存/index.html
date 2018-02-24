@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://dreamer.im">
-  <title>python基础学习——利用requests与re来动态爬取淘宝网商品信息 | 追梦人的博客</title>
+  <title>Opencv For Python——读取文件图片以及用摄像头捕获视频并保存 | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
-<meta name="keywords" content="python,requests,爬虫,re">
+  <meta name="description" content="Opencv For Python——读取文件图片以及用摄像头捕获视频并保存">
+<meta name="keywords" content="python,opencv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
-<meta property="og:url" content="http://dreamer.im/2018/02/03/python基础学习——利用requests与re来动态爬取淘宝网商品信息/index.html">
+<meta property="og:title" content="Opencv For Python——读取文件图片以及用摄像头捕获视频并保存">
+<meta property="og:url" content="http://dreamer.im/2018/02/24/Opencv-For-Python——读取文件图片以及用摄像头捕获视频并保存/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
+<meta property="og:description" content="Opencv For Python——读取文件图片以及用摄像头捕获视频并保存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://dreamer.im/images/pasted-0.png">
-<meta property="og:updated_time" content="2018-02-03T09:18:27.101Z">
+<meta property="og:updated_time" content="2018-02-24T07:31:11.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
-<meta name="twitter:description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
-<meta name="twitter:image" content="http://dreamer.im/images/pasted-0.png">
+<meta name="twitter:title" content="Opencv For Python——读取文件图片以及用摄像头捕获视频并保存">
+<meta name="twitter:description" content="Opencv For Python——读取文件图片以及用摄像头捕获视频并保存">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -165,29 +163,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python基础学习——利用requests与re来动态爬取淘宝网商品信息" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Opencv-For-Python——读取文件图片以及用摄像头捕获视频并保存" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python基础学习——利用requests与re来动态爬取淘宝网商品信息
+      Opencv For Python——读取文件图片以及用摄像头捕获视频并保存
     </h1>
   
 
         
-        <a href="/2018/02/03/python基础学习——利用requests与re来动态爬取淘宝网商品信息/" class="archive-article-date">
-  	<time datetime="2018-02-03T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+        <a href="/2018/02/24/Opencv-For-Python——读取文件图片以及用摄像头捕获视频并保存/" class="archive-article-date">
+  	<time datetime="2018-02-24T07:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python基础学习——利用requests与re来动态爬取淘宝网商品信息<br><a id="more"></a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取页面信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout =<span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        <span class="comment">#转码</span></span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="comment">#解析页面信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parsePage</span><span class="params">(ilt,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#通过查看页面源代码可知，商品名称和价格是"raw_title":"**.**"和"view_price":"****",以下是正则表达式</span></span><br><span class="line">        plt = re.findall(<span class="string">r'\"view_price\"\:\"[\d]*\.[\d]*\"'</span>,html)</span><br><span class="line">        tlt = re.findall(<span class="string">r'\"raw_title\"\:\".*?\"'</span>,html)</span><br><span class="line">        <span class="comment">#通过循环逐个添加商品名称和价格到ilt，其中eval是出去字符串中的""，split(':'[1]是得到字符串中:画面的字符串)</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(plt)):</span><br><span class="line">            price = eval(plt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            title = eval(tlt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            ilt.append([price,title])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打印列表信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printGoodsList</span><span class="params">(ilt)</span>:</span></span><br><span class="line">    <span class="comment">#规范打印格式</span></span><br><span class="line">    tplt = <span class="string">"&#123;:4&#125;\t&#123;:8&#125;\t&#123;:16&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"序号"</span>,<span class="string">"价格"</span>,<span class="string">"商品名称"</span>))</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> ilt:</span><br><span class="line">        count = count+<span class="number">1</span></span><br><span class="line">        print(tplt.format(count,g[<span class="number">0</span>],g[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment">#商品名称</span></span><br><span class="line">    goods = <span class="string">'python'</span></span><br><span class="line">    <span class="comment">#爬取页面得深度</span></span><br><span class="line">    depth = <span class="number">3</span></span><br><span class="line">    start_url = <span class="string">'https://s.taobao.com/search?q='</span> +goods</span><br><span class="line">    infoList =[]</span><br><span class="line">    <span class="comment">#循环获取页面信息并解析页面信息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(depth):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment">#淘宝得下一页是url + &amp;s=44*i,下一页就是44，第三页就是88</span></span><br><span class="line">            url = start_url + <span class="string">'&amp;s='</span> + str(<span class="number">44</span>*i)</span><br><span class="line">            html = getHTMLText(url)</span><br><span class="line">            parsePage(infoList,html)</span><br><span class="line">        <span class="comment">#如果本页信息解析失败，不会影响下一页的解析，继续作用函数</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">    <span class="comment">#打印页面信息</span></span><br><span class="line">    printGoodsList(infoList)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><b>运行结果</b><br><img src="/images/pasted-0.png" alt="upload successful"></p>
+        <p>Opencv For Python——读取文件图片以及用摄像头捕获视频并保存<br><a id="more"></a><br>1,读取文件图片，并根据键盘输入是否保存<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#读取图片</span></span><br><span class="line">img = cv2.imread(<span class="string">'test.jpg'</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">#自定义调整窗口大小</span></span><br><span class="line">cv2.namedWindow(<span class="string">'image'</span>,cv2.WINDOW_NORMAL)</span><br><span class="line"><span class="comment">#显示图像</span></span><br><span class="line">cv2.imshow(<span class="string">'image'</span>,img)</span><br><span class="line"><span class="comment">#等待键盘输入，为毫秒级</span></span><br><span class="line">k = cv2.waitKey(<span class="number">0</span>)</span><br><span class="line"><span class="comment">#当键盘输入esc时，图片不保存退出</span></span><br><span class="line"><span class="keyword">if</span> k==<span class="number">27</span>:</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"><span class="comment">#当键盘输入s时，图片保存为1.png并退出</span></span><br><span class="line"><span class="keyword">elif</span> k==ord(<span class="string">'s'</span>):</span><br><span class="line">    cv2.imwrite(<span class="string">'1.png'</span>,img)</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>2,用摄像头捕获视频并输出保存再本地<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个VideoCapture对象，他的参数可以是设备的索引号或者一个视频文件</span></span><br><span class="line"><span class="comment">#设备索引号0-&gt;笔记本电脑的内置摄像头，也可以通过设置成1或者其他来选择别的摄像头</span></span><br><span class="line"><span class="comment">#从文件中播放视频，就是把设备索引号改成视频文件的名字就行</span></span><br><span class="line">cap =cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"><span class="comment">#捕获视频并保存，需要创建一个VideoWriter</span></span><br><span class="line"><span class="comment">#FourCC就是一个4字节码，用来确定视频的编码格式</span></span><br><span class="line"><span class="comment">#In Fedora: DIVX,XVID,MJPG,X264,WMV1,WMV2(XVID是最适合的格式)</span></span><br><span class="line"><span class="comment">#In Windows: DIVX</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">'DIVX'</span>)</span><br><span class="line"><span class="comment">#VideoWriter（输出的文件名，FourCC编码，播放频率，帧的大小，isColor）当isColor为True时，每一帧时彩色，默认灰度</span></span><br><span class="line">out = cv2.VideoWriter(<span class="string">'output.avi'</span>,fourcc,<span class="number">20.0</span>,(<span class="number">640</span>,<span class="number">480</span>))</span><br><span class="line"><span class="comment">#有时候cap可能不成功的初始化摄像头设备，这种情况代码回报错，这时我们用cap.isOpened(),来检查是否成功初始化</span></span><br><span class="line"><span class="keyword">while</span>(cap.isOpened()):</span><br><span class="line">    ret,frame = cap.read()</span><br><span class="line">    <span class="keyword">if</span> ret ==<span class="keyword">True</span>:</span><br><span class="line">        <span class="comment">#cv2.flip图像翻转</span></span><br><span class="line">        <span class="comment"># 1	  水平翻转   0	垂直翻转   -1	水平垂直翻转</span></span><br><span class="line">        frame = cv2.flip(frame,<span class="number">0</span>)</span><br><span class="line">        <span class="comment">#写入捕获的视频文件到本地</span></span><br><span class="line">        out.write(frame)</span><br><span class="line">        cv2.imshow(<span class="string">'frame'</span>,frame)</span><br><span class="line">        <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> ==ord(<span class="string">'q'</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -205,15 +201,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">requests</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">re</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
         		</li>
       		
 		</ul>
@@ -269,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2018/02/03/python基础学习——利用requests与re来动态爬取淘宝网商品信息/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2018/02/24/Opencv-For-Python——读取文件图片以及用摄像头捕获视频并保存/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,18 +271,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/04/python基础学习——利用requests，bs3和re来定向爬取股票数据/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python基础学习——利用requests，bs4和re来定向爬取股票数据
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/02/python基础学习——利用Flask实现一个简单博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础学习——利用Flask实现一个简单博客</div>
+    <a href="/2018/02/04/python基础学习——利用requests，bs3和re来定向爬取股票数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基础学习——利用requests，bs4和re来定向爬取股票数据</div>
       <i class="icon-circle-right"></i>
     </a>
   
