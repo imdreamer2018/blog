@@ -181,6 +181,10 @@
         
       </header>
     
+	<!-- 目录内容 -->
+		
+<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>python基础学习——利用requests与bs4来定向爬取中国大学排名<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fillUnivList</span><span class="params">(ulist,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        soup = BeautifulSoup(html,<span class="string">"html.parser"</span>)</span><br><span class="line">        i=<span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> tr <span class="keyword">in</span> soup.find(<span class="string">'tbody'</span>).children:</span><br><span class="line">            <span class="keyword">if</span> isinstance(tr,bs4.element.Tag):</span><br><span class="line">                tds = tr(<span class="string">'td'</span>)</span><br><span class="line">                ulist.append([i,tds[<span class="number">1</span>].string,tds[<span class="number">3</span>].string])</span><br><span class="line">                i=i+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printUnivList</span><span class="params">(ulist,num)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        tplt = <span class="string">"&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;"</span></span><br><span class="line">        print(tplt.format(<span class="string">"排名"</span>,<span class="string">"学校名称"</span>,<span class="string">"总分"</span>,chr(<span class="number">12288</span>)))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">            u = ulist[i]</span><br><span class="line">            print(tplt.format(u[<span class="number">0</span>],u[<span class="number">1</span>],u[<span class="number">2</span>],chr(<span class="number">12288</span>)))</span><br><span class="line"></span><br><span class="line">        print(<span class="string">"Suc"</span>+str(num))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ ==<span class="string">"__main__"</span>:</span><br><span class="line">    uinfo = []</span><br><span class="line">    url = <span class="string">"http://www.zuihaodaxue.cn/zuihaodaxuepaiming2017.html"</span></span><br><span class="line">    html = getHTMLText(url)</span><br><span class="line"></span><br><span class="line">    fillUnivList(uinfo,html)</span><br><span class="line">    printUnivList(uinfo,<span class="number">20</span>)</span><br></pre></td></tr></table></figure></p>
@@ -441,11 +445,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">requests</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,30 +490,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python-class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">requests</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
               </li>
             
             <div class="clearfix"></div>
@@ -538,6 +542,26 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>莫烦Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.deeplearning.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>吴恩达DeepLearning</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.bilibili.com/video/av9156347/?from=search&seid=6905181275544516403/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tensorflow</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://mooc.study.163.com/course/2001281004#/info/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>卷积神经网络（吴恩达公开课）</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://zh.gluon.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>动手学习深度学习</a>
             </li>
           
         </ul>

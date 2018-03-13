@@ -181,6 +181,10 @@
         
       </header>
     
+	<!-- 目录内容 -->
+		
+<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>python基础学习——利用requests，bs4和re来定向爬取股票数据<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment">#爬取页面信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url,code = <span class="string">'utf-8'</span>)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#为防止反爬虫，设置休眠时间</span></span><br><span class="line">        <span class="comment">#time.sleep(5)</span></span><br><span class="line">        r = requests.get(url,timeout=<span class="number">30</span>,)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = code</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="comment">#解析页面信息，爬取东方财富网的各股票代码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getStockList</span><span class="params">(lst,stockURL)</span>:</span></span><br><span class="line">    html = getHTMLText(stockURL,<span class="string">'GB2312'</span>)</span><br><span class="line">    soup = BeautifulSoup(html,<span class="string">'html.parser'</span>)</span><br><span class="line">    a = soup.find_all(<span class="string">'a'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            href = i.attrs[<span class="string">'href'</span>]</span><br><span class="line">            lst.append(re.findall(<span class="string">r's[hz]\d&#123;6&#125;'</span>,href)[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"><span class="comment">#得到百度股票关于该股票的信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getStockInfo</span><span class="params">(lst,stockURL,fpath)</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="comment">#循环得到各个股票的信息</span></span><br><span class="line">    <span class="keyword">for</span> stock <span class="keyword">in</span> lst:</span><br><span class="line">        url = stockURL+stock+<span class="string">".html"</span></span><br><span class="line">        html = getHTMLText(url)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> html==<span class="string">''</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment">#将股票信息存入字典infoDict中</span></span><br><span class="line">            infoDict = &#123;&#125;</span><br><span class="line">            soup = BeautifulSoup(html,<span class="string">'html.parser'</span>)</span><br><span class="line">            stockInfo = soup.find(<span class="string">'div'</span>,attrs=&#123;<span class="string">'class'</span>:<span class="string">'stock-bets'</span>&#125;)</span><br><span class="line">            <span class="comment">#由于东方财富网上面的股票信息，在百度股票中不存在，所以会导致stockInfo为None</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> stockInfo:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment">#得到股票的名称</span></span><br><span class="line">            name = stockInfo.find_all(attrs = &#123;<span class="string">'class'</span>:<span class="string">'bets-name'</span>&#125;)[<span class="number">0</span>]</span><br><span class="line">            <span class="comment">#更新字典</span></span><br><span class="line">            infoDict.update(&#123;<span class="string">'股票名称'</span>:name.text.split()[<span class="number">0</span>]&#125;)</span><br><span class="line">            <span class="comment">#找到所有dt与dd的标签，dt存储股票信息key，dd标签存储value</span></span><br><span class="line">            keyList = stockInfo.find_all(<span class="string">'dt'</span>)</span><br><span class="line">            valueList = stockInfo.find_all(<span class="string">'dd'</span>)</span><br><span class="line">            <span class="comment">#由于有的股票已经休业，就得到不到各个信息，即为None</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> keyList <span class="keyword">or</span> <span class="keyword">not</span> valueList:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment">#循环存入字典中</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(keyList)):</span><br><span class="line">                key = keyList[i].text</span><br><span class="line">                val = valueList[i].text</span><br><span class="line">                infoDict[key] = val</span><br><span class="line">            <span class="comment">#将字典写入本地文件中</span></span><br><span class="line">            <span class="keyword">with</span> open(fpath,<span class="string">'a+'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(str(infoDict)+<span class="string">'\n'</span>)</span><br><span class="line">                count = count+<span class="number">1</span></span><br><span class="line">                <span class="comment">#为增加用户友好性交互，加上进度条</span></span><br><span class="line">                print(<span class="string">'\r当前速度:&#123;:.2f&#125;%'</span>.format(count*<span class="number">100</span>/len(lst)),end=<span class="string">''</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            traceback.print_exc()</span><br><span class="line">            count = count + <span class="number">1</span></span><br><span class="line">            print(<span class="string">'\r当前速度:&#123;:.2f&#125;%'</span>.format(count * <span class="number">100</span> / len(lst)), end=<span class="string">''</span>)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    stock_list_url = <span class="string">"http://quote.eastmoney.com/stocklist.html"</span></span><br><span class="line">    stock_info_url = <span class="string">"https://gupiao.baidu.com/stock/"</span></span><br><span class="line">    output_file = <span class="string">"D://BaiduStockInfo.txt"</span></span><br><span class="line">    slist =[]</span><br><span class="line">    getStockList(slist,stock_list_url)</span><br><span class="line">    getStockInfo(slist,stock_info_url,output_file)</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
@@ -441,11 +445,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">requests</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,30 +490,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python-class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">requests</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
               </li>
             
             <div class="clearfix"></div>
@@ -538,6 +542,26 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>莫烦Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.deeplearning.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>吴恩达DeepLearning</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.bilibili.com/video/av9156347/?from=search&seid=6905181275544516403/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tensorflow</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://mooc.study.163.com/course/2001281004#/info/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>卷积神经网络（吴恩达公开课）</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://zh.gluon.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>动手学习深度学习</a>
             </li>
           
         </ul>

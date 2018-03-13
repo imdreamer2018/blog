@@ -181,6 +181,10 @@
         
       </header>
     
+	<!-- 目录内容 -->
+		
+<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>python基础学习——利用Flask实现一个简单博客<br><a id="more"></a><br><b>1,pythonweb.py</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, session, g, redirect, url_for, abort, render_template, flash</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#显示视图</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_entries</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select title,text from entries  order by id desc "</span></span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    entries = [dict(title=row[<span class="number">0</span>],text=row[<span class="number">1</span>]) <span class="keyword">for</span> row <span class="keyword">in</span> cursor.fetchall()]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'show_entries.html'</span>,entries=entries)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加视图</span></span><br><span class="line"><span class="meta">@app.route('/add',methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_entry</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span>  session[<span class="string">"logged_in"</span>] ==<span class="keyword">True</span>:</span><br><span class="line">        cursor = conn.cursor()</span><br><span class="line">        sql = <span class="string">"insert into  entries(title,text) values('%s','%s')"</span> % (request.form[<span class="string">'title'</span>],request.form[<span class="string">'text'</span>])</span><br><span class="line">        cursor.execute(sql)</span><br><span class="line">        conn.commit()</span><br><span class="line">        flash(<span class="string">'New entry was successful posted'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        flash(<span class="string">'You are not login !'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'login'</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login1')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"login.html"</span>)</span><br><span class="line"><span class="comment">#登陆与注销</span></span><br><span class="line"><span class="meta">@app.route('/login',methods=['post'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select * from user where username='%s' and password = '%s' "</span>%(request.form[<span class="string">'username'</span>], request.form[<span class="string">'password'</span>])</span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    rs = cursor.fetchall()</span><br><span class="line">    <span class="keyword">if</span> len(rs)!=<span class="number">1</span>:</span><br><span class="line">        error = <span class="string">'Invalid username and password'</span></span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, error=error)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        session[<span class="string">"logged_in"</span>] =<span class="keyword">True</span></span><br><span class="line">        flash(<span class="string">'You are logged in'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/logout')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">()</span>:</span></span><br><span class="line">    session[<span class="string">'logged_in'</span>]=<span class="keyword">False</span></span><br><span class="line">    flash(<span class="string">'You are logged out'</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line">    host = <span class="string">'********'</span>,</span><br><span class="line">    port = <span class="number">3306</span>,</span><br><span class="line">    user = <span class="string">'root'</span>,</span><br><span class="line">    passwd = <span class="string">'**********'</span>,</span><br><span class="line">    db = <span class="string">'python'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug =<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
@@ -437,11 +441,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">requests</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,30 +486,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python-class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">requests</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
               </li>
             
             <div class="clearfix"></div>
@@ -534,6 +538,26 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>莫烦Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.deeplearning.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>吴恩达DeepLearning</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.bilibili.com/video/av9156347/?from=search&seid=6905181275544516403/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tensorflow</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://mooc.study.163.com/course/2001281004#/info/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>卷积神经网络（吴恩达公开课）</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://zh.gluon.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>动手学习深度学习</a>
             </li>
           
         </ul>

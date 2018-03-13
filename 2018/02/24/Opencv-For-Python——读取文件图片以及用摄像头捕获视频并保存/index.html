@@ -181,6 +181,10 @@
         
       </header>
     
+	<!-- 目录内容 -->
+		
+<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>Opencv For Python——读取文件图片以及用摄像头捕获视频并保存<br><a id="more"></a><br>1,读取文件图片，并根据键盘输入是否保存<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">#读取图片</span></span><br><span class="line">img = cv2.imread(<span class="string">'test.jpg'</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">#自定义调整窗口大小</span></span><br><span class="line">cv2.namedWindow(<span class="string">'image'</span>,cv2.WINDOW_NORMAL)</span><br><span class="line"><span class="comment">#显示图像</span></span><br><span class="line">cv2.imshow(<span class="string">'image'</span>,img)</span><br><span class="line"><span class="comment">#等待键盘输入，为毫秒级</span></span><br><span class="line">k = cv2.waitKey(<span class="number">0</span>)</span><br><span class="line"><span class="comment">#当键盘输入esc时，图片不保存退出</span></span><br><span class="line"><span class="keyword">if</span> k==<span class="number">27</span>:</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"><span class="comment">#当键盘输入s时，图片保存为1.png并退出</span></span><br><span class="line"><span class="keyword">elif</span> k==ord(<span class="string">'s'</span>):</span><br><span class="line">    cv2.imwrite(<span class="string">'1.png'</span>,img)</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>2,用摄像头捕获视频并输出保存再本地<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建一个VideoCapture对象，他的参数可以是设备的索引号或者一个视频文件</span></span><br><span class="line"><span class="comment">#设备索引号0-&gt;笔记本电脑的内置摄像头，也可以通过设置成1或者其他来选择别的摄像头</span></span><br><span class="line"><span class="comment">#从文件中播放视频，就是把设备索引号改成视频文件的名字就行</span></span><br><span class="line">cap =cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"><span class="comment">#捕获视频并保存，需要创建一个VideoWriter</span></span><br><span class="line"><span class="comment">#FourCC就是一个4字节码，用来确定视频的编码格式</span></span><br><span class="line"><span class="comment">#In Fedora: DIVX,XVID,MJPG,X264,WMV1,WMV2(XVID是最适合的格式)</span></span><br><span class="line"><span class="comment">#In Windows: DIVX</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">'DIVX'</span>)</span><br><span class="line"><span class="comment">#VideoWriter（输出的文件名，FourCC编码，播放频率，帧的大小，isColor）当isColor为True时，每一帧时彩色，默认灰度</span></span><br><span class="line">out = cv2.VideoWriter(<span class="string">'output.avi'</span>,fourcc,<span class="number">20.0</span>,(<span class="number">640</span>,<span class="number">480</span>))</span><br><span class="line"><span class="comment">#有时候cap可能不成功的初始化摄像头设备，这种情况代码回报错，这时我们用cap.isOpened(),来检查是否成功初始化</span></span><br><span class="line"><span class="keyword">while</span>(cap.isOpened()):</span><br><span class="line">    ret,frame = cap.read()</span><br><span class="line">    <span class="keyword">if</span> ret ==<span class="keyword">True</span>:</span><br><span class="line">        <span class="comment">#cv2.flip图像翻转</span></span><br><span class="line">        <span class="comment"># 1	  水平翻转   0	垂直翻转   -1	水平垂直翻转</span></span><br><span class="line">        frame = cv2.flip(frame,<span class="number">0</span>)</span><br><span class="line">        <span class="comment">#写入捕获的视频文件到本地</span></span><br><span class="line">        out.write(frame)</span><br><span class="line">        cv2.imshow(<span class="string">'frame'</span>,frame)</span><br><span class="line">        <span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> ==ord(<span class="string">'q'</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure></p>
@@ -433,11 +437,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">requests</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,30 +482,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python-class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">requests</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
               </li>
             
             <div class="clearfix"></div>
@@ -530,6 +534,26 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>莫烦Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.deeplearning.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>吴恩达DeepLearning</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.bilibili.com/video/av9156347/?from=search&seid=6905181275544516403/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tensorflow</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://mooc.study.163.com/course/2001281004#/info/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>卷积神经网络（吴恩达公开课）</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://zh.gluon.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>动手学习深度学习</a>
             </li>
           
         </ul>

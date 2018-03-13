@@ -181,6 +181,10 @@
         
       </header>
     
+	<!-- 目录内容 -->
+		
+<!-- 目录内容结束 -->
+
     <div class="article-entry" itemprop="articleBody">
       
         <p>基于python3.6连接mysql，实现一个银行转账的小功能（源码）<br><a id="more"></a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TransferMoney</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,conn)</span>:</span></span><br><span class="line">        self.conn = conn</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_acct_available</span><span class="params">(self,acctid)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"select * from account where acctid = %s"</span> %acctid</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"check_acct_available"</span>+sql)</span><br><span class="line">            rs = cursor.fetchall()</span><br><span class="line">            <span class="keyword">if</span> len(rs) !=<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s is not exist"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_enough_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"select * from account where acctid = %s and money&gt;= %s"</span> % (acctid,money)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"has_enough_money"</span> + sql)</span><br><span class="line">            rs = cursor.fetchall()</span><br><span class="line">            <span class="keyword">if</span> len(rs) != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s does't have enough money"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reduce_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"update account set money = money - %s where acctid = %s"</span> % (money,acctid)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"reduce_money"</span> + sql)</span><br><span class="line">            rs = cursor.rowcount</span><br><span class="line">            <span class="keyword">if</span> rs != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s transfer is't successful"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_money</span><span class="params">(self,acctid,money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor = self.conn.cursor()</span><br><span class="line">            sql = <span class="string">"update account set money = money + %s where acctid = %s"</span> % (money,acctid)</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            print(<span class="string">"add_money"</span> + sql)</span><br><span class="line">            rs = cursor.rowcount</span><br><span class="line">            <span class="keyword">if</span> rs != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"account %s transfer is't successful"</span> % acctid)</span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            cursor.close()</span><br><span class="line">    <span class="function"><span class="keyword">def</span>  <span class="title">transfer</span><span class="params">(self,source_acctid, target_acctid, money)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.check_acct_available(source_acctid)</span><br><span class="line">            self.check_acct_available(target_acctid)</span><br><span class="line">            self.has_enough_money(source_acctid,money)</span><br><span class="line">            self.reduce_money(source_acctid,money)</span><br><span class="line">            self.add_money(target_acctid,money)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            self.conn.rollback()</span><br><span class="line">            <span class="keyword">raise</span> e</span><br><span class="line"><span class="comment">#if __name__ == "__main__":</span></span><br><span class="line">    <span class="comment">#source_acctid = sys.argv[1]</span></span><br><span class="line">    <span class="comment">#target_acctid = sys.argv[2]</span></span><br><span class="line">    <span class="comment">#money = sys.argv[3]</span></span><br><span class="line"></span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line">    host = <span class="string">'*******'</span>,</span><br><span class="line">    port =<span class="number">3306</span>,</span><br><span class="line">    user = <span class="string">'root'</span>,</span><br><span class="line">    passwd = <span class="string">'*************'</span>,</span><br><span class="line">    db = <span class="string">'python'</span></span><br><span class="line"></span><br><span class="line">)</span><br><span class="line">source_acctid = int(input(<span class="string">"Input source_acctid"</span>))</span><br><span class="line">target_acctid = int(input(<span class="string">"Input target_acctid"</span>))</span><br><span class="line">money = int(input(<span class="string">"Input tansfer money "</span>))</span><br><span class="line">tr_money = TransferMoney(conn)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    tr_money.transfer(source_acctid,target_acctid,money)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">"raise Error"</span>+str(e))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    conn.close()</span><br><span class="line">	</span><br></pre></td></tr></table></figure></p>
@@ -437,11 +441,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">requests</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,30 +486,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python-class</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">requests</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">bs4</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Convolution</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Neural</a>
               </li>
             
             <div class="clearfix"></div>
@@ -534,6 +538,26 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="http://python.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>莫烦Python</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.deeplearning.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>吴恩达DeepLearning</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.bilibili.com/video/av9156347/?from=search&seid=6905181275544516403/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Tensorflow</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://mooc.study.163.com/course/2001281004#/info/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>卷积神经网络（吴恩达公开课）</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://zh.gluon.ai/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>动手学习深度学习</a>
             </li>
           
         </ul>
