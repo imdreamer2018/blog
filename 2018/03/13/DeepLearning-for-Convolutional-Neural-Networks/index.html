@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://dreamer.im">
   <title>Deep Learning——Convolutional Neural Networks | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）公开课">
+  <meta name="description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）网易公开课">
 <meta name="keywords" content="DeepLearning,Convolution,Neural">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deep Learning——Convolutional Neural Networks">
 <meta property="og:url" content="http://dreamer.im/2018/03/13/DeepLearning-for-Convolutional-Neural-Networks/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）公开课">
+<meta property="og:description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）网易公开课">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://dreamer.im/images/pasted-4.png">
 <meta property="og:image" content="http://dreamer.im/images/pasted-5.png">
@@ -41,10 +41,10 @@
 <meta property="og:image" content="http://dreamer.im/images/pasted-23.png">
 <meta property="og:image" content="http://dreamer.im/images/pasted-22.png">
 <meta property="og:image" content="http://dreamer.im/images/pasted-24.png">
-<meta property="og:updated_time" content="2018-03-13T13:03:04.241Z">
+<meta property="og:updated_time" content="2018-03-13T14:06:54.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep Learning——Convolutional Neural Networks">
-<meta name="twitter:description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）公开课">
+<meta name="twitter:description" content="卷积神经网络此教材来自吴恩达（Andrew Ng）网易公开课">
 <meta name="twitter:image" content="http://dreamer.im/images/pasted-4.png">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
@@ -207,37 +207,11 @@
         
       </header>
     
-	<!-- 目录内容 -->
-
-    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-          <span class="btn-bg"></span>
-          <span class="btn-text">文章导航</span>
-          </p>
-	<div id="toc-article" class="toc-article">
-	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-		<strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">一.计算机视觉</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">1.计算机视觉问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">2.大图片上的深度学习</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">二.边缘检测示例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">1.计算机视觉问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.0.0.2.</span> <span class="toc-text">2.垂直边缘检测示例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">三.更多的边缘检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">1.垂直边缘检测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">2.垂直与水平边缘检测</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">3.学习检测边缘</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">四.Padding</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.0.0.1.</span> <span class="toc-text">1.图片矩阵添加Padding</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.0.0.2.</span> <span class="toc-text">2.固态与相同卷积神经</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.5.</span> <span class="toc-text">五.卷积步长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.6.</span> <span class="toc-text">六.卷积神经中“卷”的体现之处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.7.</span> <span class="toc-text">七.简单卷积网络示例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.7.0.0.1.</span> <span class="toc-text">1.简单卷积网络示例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.7.0.0.2.</span> <span class="toc-text">2.卷积网络中的层类型</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.8.</span> <span class="toc-text">八.池化层</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.8.0.0.1.</span> <span class="toc-text">1.最大池化层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.8.0.0.2.</span> <span class="toc-text">2.平均池化层</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.9.</span> <span class="toc-text">九.卷积神经网络示例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.9.0.0.1.</span> <span class="toc-text">神经网络的激活值形状</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.10.</span> <span class="toc-text">十.为什么使用卷积</span></a></li></ol></li></ol>
-         </div>
-   <script type="text/javascript">
-	function showToc(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:block");
-		show_toc_btn.setAttribute("style","display:none");
-		};
-	function showBtn(){
-		var toc_article = document.getElementById("toc-article");
-		var show_toc_btn = document.getElementById("show-toc-btn");
-		toc_article.setAttribute("style","display:none");
-		show_toc_btn.setAttribute("style","display:block");
-		};
-   </script>
-      		
-<!-- 目录内容结束 -->
+	
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h1><span id="卷积神经网络"><b>卷积神经网络</b></span></h1><br>此教材来自吴恩达（Andrew Ng）公开课<br><a id="more"></a><p></p>
+        <p></p><h1><span id="卷积神经网络"><b>卷积神经网络</b></span></h1><br>此教材来自吴恩达（Andrew Ng）网易公开课<br><a id="more"></a><p></p>
 <h2><span id="一计算机视觉">一.计算机视觉</span></h2><br><h5><span id="1计算机视觉问题">1.计算机视觉问题</span></h5><br><p>当我们人类去辨别某种物体的时候，能够很容易的辨别出来，但是对于计算机而言却没那么容易，我们可以利用深度学习，来使计算机获取图片上的特征，来判断图片的物体时什么，当然深度学习也可以用于神经风格的转变，将两种不同类型的图片风格结合起来，还有用于物体的检测，判断这个物体是什么，距离是多少，大小是多少等等，在无人车上应用。</p><br><img src="/images/pasted-4.png" alt="Computer Vision Problems"><br><h5><span id="2大图片上的深度学习">2.大图片上的深度学习</span></h5><br><p>我们知道越清晰的图片，它的大小就越大，有色彩的图片是又R G B三层所构成，越位清晰的图片，颜色矩阵就约为精密，照片就越清晰，矩阵的每个元素就像神经网络一样相互联系，当然如果我们直接去训练这些神经元素，会造成很大的Cpu消耗，所有在我们去处理神经元素时，我们需要去过滤神经元素的特征，提取一些重要特征，然后训练这些特征，最终能够得到我们想要的结果。那么如何检测这些特征呢？请看下一节</p><br><img src="/images/pasted-5.png" alt="upload successful"><br><h2><span id="二边缘检测示例">二.边缘检测示例</span></h2><br><h5><span id="1计算机视觉问题">1.计算机视觉问题</span></h5><br><p>上节说到，计算机的视觉和人的视觉不一样，但是我们可以提取图片的特征给计算机，进而让计算机产生视觉判断，首先由垂直，水平，45°，70°等等特征开始到人的器官特征识别，再到人脸的识别，其中有几千，几万甚至几百万的特征需要处理，这就需要计算机去训练这些特征。</p><br><img src="/images/pasted-8.png" alt="Computer Vision Problem"><br><h5><span id="2垂直边缘检测示例">2.垂直边缘检测示例</span></h5><br><p>例如我们有一张左边为白色，右边为灰色的图片，我们可以明显的看到这张图片中间有垂直的特征，这时我们需要一个过滤器来过滤这个矩阵，例如右边这个<code>3*3</code>的矩阵（这里<code>*</code>是数学里面的乘，图片中的<code>*</code>是卷积神经的过滤运算符号）就是一个垂直过滤器，<b>运算方法:<br><img src="/images/pasted-7.png" alt=""><br><img src="/images/pasted-6.png" alt="运算方法"></b></p><br><img src="/images/pasted-1.png" alt="Vertical edge detection examples"><br> <h2><span id="三更多的边缘检测">三.更多的边缘检测</span></h2>
 
 <!-- toc -->
@@ -551,18 +525,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">re</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
               </li>
              
@@ -572,6 +534,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Neural</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">re</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
