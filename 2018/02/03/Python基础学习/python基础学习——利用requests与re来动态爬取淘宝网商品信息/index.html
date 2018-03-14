@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://dreamer.im">
-  <title>python基础学习——利用Flask实现一个简单博客 | 追梦人的博客</title>
+  <title>python基础学习——利用requests与re来动态爬取淘宝网商品信息 | 追梦人的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python基础学习——利用Flask实现一个简单博客">
-<meta name="keywords" content="python,Flask,Python-web">
+  <meta name="description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
+<meta name="keywords" content="python,re,爬虫,requests">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python基础学习——利用Flask实现一个简单博客">
-<meta property="og:url" content="http://dreamer.im/2018/02/02/python基础学习——利用Flask实现一个简单博客/index.html">
+<meta property="og:title" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
+<meta property="og:url" content="http://dreamer.im/2018/02/03/Python基础学习/python基础学习——利用requests与re来动态爬取淘宝网商品信息/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="python基础学习——利用Flask实现一个简单博客">
+<meta property="og:description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T14:03:37.709Z">
+<meta property="og:image" content="http://dreamer.im/images/pasted-0.png">
+<meta property="og:updated_time" content="2018-02-03T09:18:27.101Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python基础学习——利用Flask实现一个简单博客">
-<meta name="twitter:description" content="python基础学习——利用Flask实现一个简单博客">
+<meta name="twitter:title" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
+<meta name="twitter:description" content="python基础学习——利用requests与re来动态爬取淘宝网商品信息">
+<meta name="twitter:image" content="http://dreamer.im/images/pasted-0.png">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -163,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python基础学习——利用Flask实现一个简单博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python基础学习/python基础学习——利用requests与re来动态爬取淘宝网商品信息" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python基础学习——利用Flask实现一个简单博客
+      python基础学习——利用requests与re来动态爬取淘宝网商品信息
     </h1>
   
 
         
-        <a href="/2018/02/02/python基础学习——利用Flask实现一个简单博客/" class="archive-article-date">
-  	<time datetime="2018-02-02T13:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-02</time>
+        <a href="/2018/02/03/Python基础学习/python基础学习——利用requests与re来动态爬取淘宝网商品信息/" class="archive-article-date">
+  	<time datetime="2018-02-03T09:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
 </a>
         
       </header>
@@ -185,7 +187,9 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>python基础学习——利用Flask实现一个简单博客<br><a id="more"></a><br><b>1,pythonweb.py</b><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, session, g, redirect, url_for, abort, render_template, flash</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#显示视图</span></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_entries</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select title,text from entries  order by id desc "</span></span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    entries = [dict(title=row[<span class="number">0</span>],text=row[<span class="number">1</span>]) <span class="keyword">for</span> row <span class="keyword">in</span> cursor.fetchall()]</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'show_entries.html'</span>,entries=entries)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#添加视图</span></span><br><span class="line"><span class="meta">@app.route('/add',methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_entry</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span>  session[<span class="string">"logged_in"</span>] ==<span class="keyword">True</span>:</span><br><span class="line">        cursor = conn.cursor()</span><br><span class="line">        sql = <span class="string">"insert into  entries(title,text) values('%s','%s')"</span> % (request.form[<span class="string">'title'</span>],request.form[<span class="string">'text'</span>])</span><br><span class="line">        cursor.execute(sql)</span><br><span class="line">        conn.commit()</span><br><span class="line">        flash(<span class="string">'New entry was successful posted'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        flash(<span class="string">'You are not login !'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'login'</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login1')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">"login.html"</span>)</span><br><span class="line"><span class="comment">#登陆与注销</span></span><br><span class="line"><span class="meta">@app.route('/login',methods=['post'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    sql = <span class="string">"select * from user where username='%s' and password = '%s' "</span>%(request.form[<span class="string">'username'</span>], request.form[<span class="string">'password'</span>])</span><br><span class="line">    cursor.execute(sql)</span><br><span class="line">    rs = cursor.fetchall()</span><br><span class="line">    <span class="keyword">if</span> len(rs)!=<span class="number">1</span>:</span><br><span class="line">        error = <span class="string">'Invalid username and password'</span></span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, error=error)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">        session[<span class="string">"logged_in"</span>] =<span class="keyword">True</span></span><br><span class="line">        flash(<span class="string">'You are logged in'</span>)</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/logout')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span><span class="params">()</span>:</span></span><br><span class="line">    session[<span class="string">'logged_in'</span>]=<span class="keyword">False</span></span><br><span class="line">    flash(<span class="string">'You are logged out'</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">'show_entries'</span>))</span><br><span class="line"></span><br><span class="line">conn = pymysql.Connect(</span><br><span class="line">    host = <span class="string">'********'</span>,</span><br><span class="line">    port = <span class="number">3306</span>,</span><br><span class="line">    user = <span class="string">'root'</span>,</span><br><span class="line">    passwd = <span class="string">'**********'</span>,</span><br><span class="line">    db = <span class="string">'python'</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug =<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure></p>
+        <p>python基础学习——利用requests与re来动态爬取淘宝网商品信息<br><a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#获取页面信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout =<span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        <span class="comment">#转码</span></span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="comment">#解析页面信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parsePage</span><span class="params">(ilt,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#通过查看页面源代码可知，商品名称和价格是"raw_title":"**.**"和"view_price":"****",以下是正则表达式</span></span><br><span class="line">        plt = re.findall(<span class="string">r'\"view_price\"\:\"[\d]*\.[\d]*\"'</span>,html)</span><br><span class="line">        tlt = re.findall(<span class="string">r'\"raw_title\"\:\".*?\"'</span>,html)</span><br><span class="line">        <span class="comment">#通过循环逐个添加商品名称和价格到ilt，其中eval是出去字符串中的""，split(':'[1]是得到字符串中:画面的字符串)</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(plt)):</span><br><span class="line">            price = eval(plt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            title = eval(tlt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            ilt.append([price,title])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#打印列表信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printGoodsList</span><span class="params">(ilt)</span>:</span></span><br><span class="line">    <span class="comment">#规范打印格式</span></span><br><span class="line">    tplt = <span class="string">"&#123;:4&#125;\t&#123;:8&#125;\t&#123;:16&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"序号"</span>,<span class="string">"价格"</span>,<span class="string">"商品名称"</span>))</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> ilt:</span><br><span class="line">        count = count+<span class="number">1</span></span><br><span class="line">        print(tplt.format(count,g[<span class="number">0</span>],g[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment">#商品名称</span></span><br><span class="line">    goods = <span class="string">'python'</span></span><br><span class="line">    <span class="comment">#爬取页面得深度</span></span><br><span class="line">    depth = <span class="number">3</span></span><br><span class="line">    start_url = <span class="string">'https://s.taobao.com/search?q='</span> +goods</span><br><span class="line">    infoList =[]</span><br><span class="line">    <span class="comment">#循环获取页面信息并解析页面信息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(depth):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment">#淘宝得下一页是url + &amp;s=44*i,下一页就是44，第三页就是88</span></span><br><span class="line">            url = start_url + <span class="string">'&amp;s='</span> + str(<span class="number">44</span>*i)</span><br><span class="line">            html = getHTMLText(url)</span><br><span class="line">            parsePage(infoList,html)</span><br><span class="line">        <span class="comment">#如果本页信息解析失败，不会影响下一页的解析，继续作用函数</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">    <span class="comment">#打印页面信息</span></span><br><span class="line">    printGoodsList(infoList)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><b>运行结果</b><br><img src="/images/pasted-0.png" alt="upload successful"></p>
 
       
 
@@ -203,11 +207,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">re</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Python-web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">requests</a>
         		</li>
       		
 		</ul>
@@ -263,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2018/02/02/python基础学习——利用Flask实现一个简单博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2018/02/03/Python基础学习/python基础学习——利用requests与re来动态爬取淘宝网商品信息/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +285,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/03/python基础学习——利用requests与re来动态爬取淘宝网商品信息/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/04/Python基础学习/python基础学习——利用requests，bs3和re来定向爬取股票数据/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python基础学习——利用requests与re来动态爬取淘宝网商品信息
+          python基础学习——利用requests，bs4和re来定向爬取股票数据
         
       </div>
     </a>
   
   
-    <a href="/2018/02/02/python基础学习——利用requests与bs4来定向爬取中国大学排名/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础学习——利用requests与bs4来定向爬取中国大学排名</div>
+    <a href="/2018/02/02/Python基础学习/python基础学习——利用Flask实现一个简单博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基础学习——利用Flask实现一个简单博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -474,15 +482,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">re</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
