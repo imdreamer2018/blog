@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://dreamer.im">
-  <title>梳理HTTPAuth验证用户身份逻辑 | 追梦人的博客</title>
+  <title>Commit message 和 Change log 编写指南 | 追梦人的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
-<meta name="keywords" content="python,Flask,RESTful,HTTPAuth">
+  <meta name="description" content="Commit message 和 Change log 编写指南本文转载自阮一峰的网络日志，原文链接为：点击这儿。转载仅用于学习。 Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 1git commit -m &quot;hello world&quot; 上面代码的-m参数，就是用来指定 commit mesage 的。 如果一行不够，可以只执行git commit，就会">
+<meta name="keywords" content="Git,编写规范">
 <meta property="og:type" content="article">
-<meta property="og:title" content="梳理HTTPAuth验证用户身份逻辑">
-<meta property="og:url" content="http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/index.html">
+<meta property="og:title" content="Commit message 和 Change log 编写指南">
+<meta property="og:url" content="http://dreamer.im/2020/02/21/随笔/Commit message 和 Change log 编写指南/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
+<meta property="og:description" content="Commit message 和 Change log 编写指南本文转载自阮一峰的网络日志，原文链接为：点击这儿。转载仅用于学习。 Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 1git commit -m &quot;hello world&quot; 上面代码的-m参数，就是用来指定 commit mesage 的。 如果一行不够，可以只执行git commit，就会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/15/Aj0tLF.png">
-<meta property="og:updated_time" content="2020-02-21T05:01:49.563Z">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016010605.png">
+<meta property="og:updated_time" content="2020-02-21T11:58:51.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="梳理HTTPAuth验证用户身份逻辑">
-<meta name="twitter:description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/15/Aj0tLF.png">
+<meta name="twitter:title" content="Commit message 和 Change log 编写指南">
+<meta name="twitter:description" content="Commit message 和 Change log 编写指南本文转载自阮一峰的网络日志，原文链接为：点击这儿。转载仅用于学习。 Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。 1git commit -m &quot;hello world&quot; 上面代码的-m参数，就是用来指定 commit mesage 的。 如果一行不够，可以只执行git commit，就会">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016010605.png">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -201,14 +201,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-随笔/Commit message 和 Change log 编写指南" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      梳理HTTPAuth验证用户身份逻辑
+      Commit message 和 Change log 编写指南
     </h1>
   
 
@@ -220,8 +220,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" class="archive-article-date">
-        <time datetime="2019-04-15T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-15</time>
+<a href="/2020/02/21/随笔/Commit message 和 Change log 编写指南/" class="archive-article-date">
+        <time datetime="2020-02-21T11:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
 </a>
 
   
@@ -234,7 +234,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.9k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -243,7 +243,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -254,42 +254,98 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="梳理Flasky应用的HTTPAuth验证用户身份逻辑"><a href="#梳理Flasky应用的HTTPAuth验证用户身份逻辑" class="headerlink" title="梳理Flasky应用的HTTPAuth验证用户身份逻辑"></a>梳理Flasky应用的HTTPAuth验证用户身份逻辑</h1><p>在上一节博客中，介绍到了Flasky应用编程接口，前面说过，<code>REST</code>式<code>Web</code>服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。</p>
-<p><code>Flasky</code>应用当前的登陆功能是在<code>Flask-Login</code>的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把会话保存在客户端<code>cookie</code>中，因此服务器没有保存任何用户相关信息，都转交给客户端保存。这种实现方式看起来遵守了<code>REST</code>架构的无状态要求，但在<code>REST</code>式<code>We</code>b服务中使用<code>cookie</code>有点不现实，因为Web浏览器之外的客户端很难提供对<code>cookie</code>的支持。鉴于此，在API中使用<code>cookie</code>并不是一个很好的设计选择。</p>
+    <h1 id="Commit-message-和-Change-log-编写指南"><a href="#Commit-message-和-Change-log-编写指南" class="headerlink" title="Commit message 和 Change log 编写指南"></a>Commit message 和 Change log 编写指南</h1><p>本文转载自阮一峰的网络日志，原文链接为：<a href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener">点击这儿</a>。转载仅用于学习。</p>
+<p>Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的<code>-m</code>参数，就是用来指定 commit mesage 的。</p>
+<p>如果一行不够，可以只执行<code>git commit</code>，就会跳出文本编辑器，让你写多行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br></pre></td></tr></table></figure>
+<p>基本上，你写什么都行（<a href="http://www.commitlogsfromlastnight.com/" target="_blank" rel="noopener">这里</a>，<a href="http://blog.no-panic.at/2014/10/20/funny-initial-git-commit-messages/" target="_blank" rel="noopener">这里</a>和<a href="http://whatthecommit.com/" target="_blank" rel="noopener">这里</a>）。</p>
+<p>但是，一般来说，commit message 应该清晰明了，说明本次提交的目的。</p>
+<p>目前，社区有多种 Commit message 的<a href="https://github.com/ajoslin/conventional-changelog/blob/master/conventions" target="_blank" rel="noopener">写法规范</a>。本文介绍<a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0" target="_blank" rel="noopener">Angular 规范</a>，这是目前使用最广的写法，比较合理和系统化，并且有配套的工具。</p>
 <a id="more"></a>
-<blockquote>
-<p><code>REST</code>架构的无状态要求看起来似乎获取严格，但这并不是随意提出的要求——无状态的服务器<strong>伸缩</strong>起来更加简单。如果服务器保存了客户端的相关信息，那么必须保证特定客户端发送的请求由同一台服务器处理，或者使用共享存储器客户端数据。这两点都难以实现，但是如果服务器式无状态的，这两个问题就不复存在。</p>
-</blockquote>
-<p>因为<code>REST</code>架构基于<code>HTTP</code>协议，所以发送凭据的最佳方式式使用<strong><code>HTTP</code>身份验证</strong>，基本验证和摘要验证都可以。在<code>HTTP</code>身份验证中，用户凭据包含在每个请求的<code>Authorization</code>首部中。</p>
-<p><code>HTTP</code>身份验证协议很简单，可以直接实现，不过<code>Flask-HTTPAuth</code>扩展提供了一个遍历的包装，把协议的细节隐藏在装饰器之中，类似于<code>Flask-Login</code>提供的<code>login_required</code>装饰器。</p>
-<h2 id="HTTPAuth验证流程"><a href="#HTTPAuth验证流程" class="headerlink" title="HTTPAuth验证流程"></a>HTTPAuth验证流程</h2><p><img src="https://s2.ax1x.com/2019/04/15/Aj0tLF.png" alt="Aj0tLF.png"></p>
-<p>由于每次访问资源都需要登陆验证，所以这里每次访问是需要将用户凭据包含在每个请求的<code>Authorization</code>首部中。</p>
-<h2 id="验证身份模块"><a href="#验证身份模块" class="headerlink" title="验证身份模块"></a>验证身份模块</h2><p>这里我们利用了<code>Flask-HTTPAuth</code>扩展提供装饰器。当我们需要访问资源的时候，将用户凭据包含在每个请求的<code>Authorization</code>首部中，如果没有通过验证就无法访问资源。这里需要在<code>before_request</code>处理程序中使用<code>login_required</code>装饰器。</p>
-<h3 id="设置蓝本全局路由保护"><a href="#设置蓝本全局路由保护" class="headerlink" title="设置蓝本全局路由保护"></a>设置蓝本全局路由保护</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在before_request处理程序中验证身份</span></span><br><span class="line"><span class="meta">@api.before_request</span></span><br><span class="line"><span class="meta">@auth.login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_request</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> g.current_user.is_anonymous <span class="keyword">and</span> <span class="keyword">not</span> g.current_user.confirmed:</span><br><span class="line">        <span class="keyword">return</span> forbidden(<span class="string">'Unconifrmed account'</span>)</span><br></pre></td></tr></table></figure>
-<p>其中<code>login_required</code>装饰器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login_required</span><span class="params">(self, f)</span>:</span></span><br><span class="line"><span class="meta">    @wraps(f)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorated</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        auth = self.get_auth()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Flask normally handles OPTIONS requests on its own, but in the</span></span><br><span class="line">        <span class="comment"># case it is configured to forward those to the application, we</span></span><br><span class="line">        <span class="comment"># need to ignore authentication headers and let the request through</span></span><br><span class="line">        <span class="comment"># to avoid unwanted interactions with CORS.</span></span><br><span class="line">        <span class="keyword">if</span> request.method != <span class="string">'OPTIONS'</span>:  <span class="comment"># pragma: no cover</span></span><br><span class="line">            password = self.get_auth_password(auth)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.authenticate(auth, password):</span><br><span class="line">                <span class="comment"># Clear TCP receive buffer of any pending data</span></span><br><span class="line">                request.data</span><br><span class="line">                <span class="keyword">return</span> self.auth_error_callback()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f(*args, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> decorated</span><br></pre></td></tr></table></figure>
-<p>首先<code>self.get_auth()</code>得到首部<code>Authorization</code>。源码如下，这里得到首部字段，并且包装得到<code>auth</code>，并返回给<code>login_required</code>函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_auth</span><span class="params">(self)</span>:</span></span><br><span class="line">    auth = request.authorization</span><br><span class="line">    <span class="keyword">if</span> auth <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">and</span> <span class="string">'Authorization'</span> <span class="keyword">in</span> request.headers:</span><br><span class="line">        <span class="comment"># Flask/Werkzeug do not recognize any authentication types</span></span><br><span class="line">        <span class="comment"># other than Basic or Digest, so here we parse the header by</span></span><br><span class="line">        <span class="comment"># hand</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            auth_type, token = request.headers[<span class="string">'Authorization'</span>].split(</span><br><span class="line">                <span class="keyword">None</span>, <span class="number">1</span>)</span><br><span class="line">            auth = Authorization(auth_type, &#123;<span class="string">'token'</span>: token&#125;)</span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="comment"># The Authorization header is either empty or has no token</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># if the auth type does not match, we act as if there is no auth</span></span><br><span class="line">    <span class="comment"># this is better than failing directly, as it allows the callback</span></span><br><span class="line">    <span class="comment"># to handle special cases, like supporting multiple auth types</span></span><br><span class="line">    <span class="keyword">if</span> auth <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> auth.type.lower() != self.scheme.lower():</span><br><span class="line">        auth = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> auth</span><br></pre></td></tr></table></figure>
-<p>接下来需要<code>self.get_auth_password(auth)</code>得到auth中包含用户的用户密码。然后再调用<code>self.authenticate(auth, password)</code>去进行身份验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self, auth, stored_password)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> auth:</span><br><span class="line">        username = auth.username</span><br><span class="line">        client_password = auth.password</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        username = <span class="string">""</span></span><br><span class="line">        client_password = <span class="string">""</span></span><br><span class="line">    <span class="keyword">if</span> self.verify_password_callback:</span><br><span class="line">        <span class="keyword">return</span> self.verify_password_callback(username, client_password)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> auth:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">if</span> self.hash_password_callback:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            client_password = self.hash_password_callback(client_password)</span><br><span class="line">        <span class="keyword">except</span> TypeError:</span><br><span class="line">            client_password = self.hash_password_callback(username,</span><br><span class="line">                                                          client_password)</span><br><span class="line">    <span class="keyword">return</span> client_password <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> \</span><br><span class="line">        client_password == stored_password</span><br></pre></td></tr></table></figure>
-<p>这里我们会得到<code>auth.username</code>和<code>auth.password</code>。如果请求首部不包含<code>Authorization</code>，就将<code>username</code>和<code>client_password</code>设为空值。最后一步就是调用<code>self.verify_password_callback</code>回调函数进行验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTTPBasicAuth</span><span class="params">(HTTPAuth)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, scheme=None, realm=None)</span>:</span></span><br><span class="line">        super(HTTPBasicAuth, self).__init__(scheme <span class="keyword">or</span> <span class="string">'Basic'</span>, realm)</span><br><span class="line"></span><br><span class="line">        self.hash_password_callback = <span class="keyword">None</span></span><br><span class="line">        self.verify_password_callback = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">verify_password</span><span class="params">(self, f)</span>:</span></span><br><span class="line">        self.verify_password_callback = f</span><br><span class="line">        <span class="keyword">return</span> f</span><br></pre></td></tr></table></figure>
-<p>这里的<code>self.verify_password_callback</code>是回调函数，这里就需要我们手动写回调函数，然后将回调函数传入<code>verify_password</code>，然后再将函数回调给<code>verify_password_callback</code>。关于什么是回调函数，可以在我的博客中查看，链接地址：<a href="https://www.dreamer.im/2019/04/16/%E9%9A%8F%E7%AC%94/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" target="_blank" rel="noopener">点击这儿</a>。</p>
-<h3 id="添加verify-password回调函数"><a href="#添加verify-password回调函数" class="headerlink" title="添加verify_password回调函数"></a>添加verify_password回调函数</h3><p>关于支持令牌身份验证，我还需在User模型中定义两个新方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/models.py 支持基于令牌的身份验证</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(UserMixin,db.Model)</span>:</span></span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generate_auth_token</span><span class="params">(self,expiration)</span>:</span></span><br><span class="line">        s = Serializer(current_app.config[<span class="string">'SECRET_KEY'</span>],</span><br><span class="line">                       expires_in=expiration)</span><br><span class="line">        <span class="keyword">return</span> s.dumps(&#123;id&#125;:self.id).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="meta">	@staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">verify_auth_token</span><span class="params">(token)</span>:</span></span><br><span class="line">        s = Serializer(current_app.config[<span class="string">'SECRET_KEY'</span>])</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = s.loads(token)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> User.query.get(data[<span class="string">'id'</span>])</span><br></pre></td></tr></table></figure>
-<p>下面需要我们添加<code>verify_password</code>回调函数，并且该函数支持基于令牌的身份验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">auth = HTTPBasicAuth()</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化Flask-HTTPAuth</span></span><br><span class="line"><span class="meta">@auth.verify_password</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">verify_password</span><span class="params">(email_or_token,password)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> email_or_token== <span class="string">''</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">if</span> password==<span class="string">''</span>:</span><br><span class="line">        g.current_user = User.verify_auth_token(email_or_token)</span><br><span class="line">        g.token_used = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> g.current_user <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span></span><br><span class="line">    user = User.query.filter_by(email=email_or_token).first()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> user:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    g.current_user = user</span><br><span class="line">    g.token_used = <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">return</span> user.verify_password(password)</span><br></pre></td></tr></table></figure>
-<p><code>generate_auth_token()</code>方法使用编码后的用户id字段值生成一个签名令牌，还制定了以秒为单位的过期时间。<code>verify_auth_token()</code>方法接受的参数式一个令牌，如果令牌有效就返回对于的用户。<code>verify_auth_token()</code>式静态方法，因为只有解码令牌后才能知道用户是谁。</p>
-<p>为了能够使用令牌验证请求，我们必须修改<code>Flask-HTTPAuth</code>提供的<code>verify_password</code>回调，除了普通的凭据之外，还要接受令牌。</p>
-<p>自此，身份验证模块还差最后一步，就是处理错误。当用户身份凭证不争取的时候，服务器需要向客户端返回401状态码。默认情况下，<code>Flask-HTTPAuth</code>自动生成这个状态码，但为了与API返回的其他状态码保持一致，我们可以自定义这个错误响应。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/authentication.py Flask-HTTPAuth错误处理程序</span></span><br><span class="line"><span class="keyword">from</span> .errors <span class="keyword">import</span> unauthorized</span><br><span class="line"></span><br><span class="line"><span class="meta">@auth.error_handler</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auth_error</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> unauthorized(<span class="string">'Invalid credentials'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/errors.py API蓝本中各错误状态码的错误处理程序</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br><span class="line"><span class="keyword">from</span> app.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> api</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bad_request</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'bad request'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">400</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unauthorized</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'unauthorized'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">401</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forbidden</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'forbidden'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">403</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="meta">@api.app_errorhandler(ValidationError)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validation_error</span><span class="params">(e)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> bad_request(e.args[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p>到此，身份验证模块已介绍完毕。当请求每个资源的时候，需要每次加上请求首部才能访问资源。</p>
-<h2 id="资源权限验证"><a href="#资源权限验证" class="headerlink" title="资源权限验证"></a>资源权限验证</h2><p>我们可以利用之前写好的权限，在api蓝本中加上一个资源权限验证的装饰器<code>permission_required</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/decorators.py 资源权限验证装饰器</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> g</span><br><span class="line"><span class="keyword">from</span> .errors <span class="keyword">import</span> forbidden</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permission_required</span><span class="params">(permission)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(f)</span>:</span></span><br><span class="line"><span class="meta">        @wraps(f)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">decorated_function</span><span class="params">(*args,**kwargs)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> g.current_user.can(permission):</span><br><span class="line">                <span class="keyword">return</span> forbidden(<span class="string">'Insufficient permissions'</span>)</span><br><span class="line">            <span class="keyword">return</span> f(*args,**kwargs)</span><br><span class="line">        <span class="keyword">return</span> decorated_function</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
-<p>在进行某些资源权限认证时加上<code>@permission.required</code>就可以了。例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一篇文章博客</span></span><br><span class="line"><span class="meta">@api.route('/posts/',methods=['POST'])</span></span><br><span class="line"><span class="meta">@permission_required(Permission.WRITE)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_post</span><span class="params">()</span>:</span></span><br><span class="line">    post = Post.from_json(request.json)</span><br><span class="line">    post.author = g.current_user</span><br><span class="line">    db.session.add(post)</span><br><span class="line">    db.session.commit()</span><br><span class="line">    <span class="comment">#返回201状态码，并把Location首部的值设为刚创建的这个资源的URL</span></span><br><span class="line">    <span class="comment">#为了方便客户端操作，相应的主体中包含了新建的资源</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(post.to_json()), <span class="number">201</span> ,&#123;<span class="string">'Location'</span>:url_for(<span class="string">'api.get_post'</span>,id=post.id)&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="一、Commit-message-的作用"><a href="#一、Commit-message-的作用" class="headerlink" title="一、Commit message 的作用"></a>一、Commit message 的作用</h2><p>格式化的Commit message，有几个好处。</p>
+<p><strong>（1）提供更多的历史信息，方便快速浏览。</strong></p>
+<p>比如，下面的命令显示上次发布后的变动，每个commit占据一行。你只看行首，就知道某次 commit 的目的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> &lt;last tag&gt; HEAD --pretty=format:%s</span><br></pre></td></tr></table></figure>
+<p><strong>（2）可以过滤某些commit（比如文档改动），便于快速查找信息。</strong></p>
+<p>比如，下面的命令仅仅显示本次发布新增加的功能。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> &lt;last release&gt; HEAD --grep feature</span><br></pre></td></tr></table></figure>
+<p><strong>（3）可以直接从commit生成Change log。</strong></p>
+<p>Change Log 是发布新版本时，用来说明与上一个版本差异的文档，详见后文。</p>
+<h2 id="二、Commit-message-的格式"><a href="#二、Commit-message-的格式" class="headerlink" title="二、Commit message 的格式"></a>二、Commit message 的格式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">type</span>&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;body&gt;</span><br><span class="line">// 空一行</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure>
+<p>其中，Header 是必需的，Body 和 Footer 可以省略。</p>
+<p>不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。</p>
+<h3 id="2-1-Header"><a href="#2-1-Header" class="headerlink" title="2.1 Header"></a>2.1 Header</h3><p>Header部分只有一行，包括三个字段：<code>type</code>（必需）、<code>scope</code>（可选）和<code>subject</code>（必需）。</p>
+<p><strong>（1）type</strong></p>
+<p><code>type</code>用于说明 commit 的类别，只允许使用下面7个标识。</p>
+<ul>
+<li>feat：新功能（feature）</li>
+<li>fix：修补bug</li>
+<li>docs：文档（documentation）</li>
+<li>style： 格式（不影响代码运行的变动）</li>
+<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
+<li>test：增加测试</li>
+<li>chore：构建过程或辅助工具的变动</li>
+</ul>
+<p>如果<code>type</code>为<code>feat</code>和<code>fix</code>，则该 commit 将肯定出现在 Change log 之中。其他情况（<code>docs</code>、<code>chore</code>、<code>style</code>、<code>refactor</code>、<code>test</code>）由你决定，要不要放入 Change log，建议是不要。</p>
+<p><strong>（2）scope</strong></p>
+<p><code>scope</code>用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p>
+<p><strong>（3）subject</strong></p>
+<p><code>subject</code>是 commit 目的的简短描述，不超过50个字符。</p>
+<ul>
+<li>以动词开头，使用第一人称现在时，比如<code>change</code>，而不是<code>changed</code>或<code>changes</code></li>
+<li>第一个字母小写</li>
+<li>结尾不加句号（<code>.</code>）</li>
+</ul>
+<h3 id="2-2-Body"><a href="#2-2-Body" class="headerlink" title="2.2 Body"></a>2.2 Body</h3><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">More detailed explanatory text, <span class="keyword">if</span> necessary.  Wrap it to </span><br><span class="line">about 72 characters or so. </span><br><span class="line"></span><br><span class="line">Further paragraphs come after blank lines.</span><br><span class="line"></span><br><span class="line">- Bullet points are okay, too</span><br><span class="line">- Use a hanging indent</span><br></pre></td></tr></table></figure>
+<p>有两个注意点。</p>
+<p>（1）使用第一人称现在时，比如使用<code>change</code>而不是<code>changed</code>或<code>changes</code>。</p>
+<p>（2）应该说明代码变动的动机，以及与以前行为的对比。</p>
+<h3 id="2-3-Footer"><a href="#2-3-Footer" class="headerlink" title="2.3 Footer"></a>2.3 Footer</h3><p>Footer 部分只用于两种情况。</p>
+<p><strong>1）不兼容变动</strong></p>
+<p>如果当前代码与上一个版本不兼容，则 Footer 部分以<code>BREAKING CHANGE</code>开头，后面是对变动的描述、以及变动理由和迁移方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BREAKING CHANGE: isolate scope bindings definition has changed.</span><br><span class="line"></span><br><span class="line">    To migrate the code follow the example below:</span><br><span class="line"></span><br><span class="line">    Before:</span><br><span class="line"></span><br><span class="line">    scope: &#123;</span><br><span class="line">      myAttr: <span class="string">'attribute'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    After:</span><br><span class="line"></span><br><span class="line">    scope: &#123;</span><br><span class="line">      myAttr: <span class="string">'@'</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    The removed `inject` wasn<span class="string">'t generaly useful for directives so there should be no code using it.</span></span><br></pre></td></tr></table></figure>
+<p><strong>（2）关闭 Issue</strong></p>
+<p>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Closes <span class="comment">#234</span></span><br></pre></td></tr></table></figure>
+<p>也可以一次关闭多个 issue 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Closes <span class="comment">#123, #245, #992</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-Revert"><a href="#2-4-Revert" class="headerlink" title="2.4 Revert"></a>2.4 Revert</h3><p>还有一种特殊情况，如果当前 commit 用于撤销以前的 commit，则必须以<code>revert:</code>开头，后面跟着被撤销 Commit 的 Header。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">revert: feat(pencil): add <span class="string">'graphiteWidth'</span> option</span><br><span class="line"></span><br><span class="line">This reverts commit 667ecc1654a317a13331b17617d973392f415f02.</span><br></pre></td></tr></table></figure>
+<p>Body部分的格式是固定的，必须写成<code>This reverts commit &lt;hash&gt;.</code>，其中的<code>hash</code>是被撤销 commit 的 SHA 标识符。</p>
+<p>如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的<code>Reverts</code>小标题下面。</p>
+<h2 id="三、Commitizen"><a href="#三、Commitizen" class="headerlink" title="三、Commitizen"></a>三、Commitizen</h2><p><a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener">Commitizen</a>是一个撰写合格 Commit message 的工具。</p>
+<p>安装命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g commitizen</span><br></pre></td></tr></table></figure>
+<p>然后，在项目目录里，运行下面的命令，使其支持 Angular 的 Commit message 格式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ commitizen init cz-conventional-changelog --save --save-exact</span><br></pre></td></tr></table></figure>
+<p>以后，凡是用到<code>git commit</code>命令，一律改为使用<code>git cz</code>。这时，就会出现选项，用来生成符合格式的 Commit message。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2016/bg2016010605.png" alt=""></p>
+<h2 id="四、validate-commit-msg"><a href="#四、validate-commit-msg" class="headerlink" title="四、validate-commit-msg"></a>四、validate-commit-msg</h2><p><a href="https://github.com/kentcdodds/validate-commit-msg" target="_blank" rel="noopener">validate-commit-msg</a> 用于检查 Node 项目的 Commit message 是否符合格式。</p>
+<p>它的安装是手动的。首先，拷贝下面这个<a href="https://github.com/kentcdodds/validate-commit-msg/blob/master/index.js" target="_blank" rel="noopener">JS文件</a>，放入你的代码库。文件名可以取为<code>validate-commit-msg.js</code>。</p>
+<p>接着，把这个脚本加入 Git 的 hook。下面是在<code>package.json</code>里面使用 <a href="http://npm.im/ghooks" target="_blank" rel="noopener">ghooks</a>，把这个脚本加为<code>commit-msg</code>时运行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"config"</span>: &#123;</span><br><span class="line">  <span class="string">"ghooks"</span>: &#123;</span><br><span class="line">    <span class="string">"commit-msg"</span>: <span class="string">"./validate-commit-msg.js"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，每次<code>git commit</code>的时候，这个脚本就会自动检查 Commit message 是否合格。如果不合格，就会报错。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add -A </span><br><span class="line">$ git commit -m <span class="string">"edit markdown"</span> </span><br><span class="line">INVALID COMMIT MSG: does not match <span class="string">"&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;"</span> ! was: edit markdown</span><br></pre></td></tr></table></figure>
+<h2 id="五、生成-Change-log"><a href="#五、生成-Change-log" class="headerlink" title="五、生成 Change log"></a>五、生成 Change log</h2><p>如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成（<a href="https://github.com/ajoslin/conventional-changelog/blob/master/CHANGELOG.md" target="_blank" rel="noopener">例1</a>，<a href="https://github.com/karma-runner/karma/blob/master/CHANGELOG.md" target="_blank" rel="noopener">例2</a>，<a href="https://github.com/btford/grunt-conventional-changelog/blob/master/CHANGELOG.md" target="_blank" rel="noopener">例3</a>）。</p>
+<p>生成的文档包括以下三个部分。</p>
+<ul>
+<li>New features</li>
+<li>Bug fixes</li>
+<li>Breaking changes.</li>
+</ul>
+<p>每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容。</p>
+<p><a href="https://github.com/ajoslin/conventional-changelog" target="_blank" rel="noopener">conventional-changelog</a> 就是生成 Change log 的工具，运行下面的命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g conventional-changelog</span><br><span class="line">$ <span class="built_in">cd</span> my-project</span><br><span class="line">$ conventional-changelog -p angular -i CHANGELOG.md -w</span><br></pre></td></tr></table></figure>
+<p>上面命令不会覆盖以前的 Change log，只会在<code>CHANGELOG.md</code>的头部加上自从上次发布以来的变动。</p>
+<p>如果你想生成所有发布的 Change log，要改为运行下面的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ conventional-changelog -p angular -i CHANGELOG.md -w -r 0</span><br></pre></td></tr></table></figure>
+<p>为了方便使用，可以将其写入<code>package.json</code>的<code>scripts</code>字段。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"changelog"</span>: <span class="string">"conventional-changelog -p angular -i CHANGELOG.md -w -r 0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以后，直接运行下面的命令即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run changelog</span><br></pre></td></tr></table></figure>
     
 
     
@@ -303,7 +359,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" title="梳理HTTPAuth验证用户身份逻辑" target="_blank">http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/</a>
+          <a href="http://dreamer.im/2020/02/21/随笔/Commit message 和 Change log 编写指南/" title="Commit message 和 Change log 编写指南" target="_blank">http://dreamer.im/2020/02/21/随笔/Commit message 和 Change log 编写指南/</a>
         </li>
         
         <li>
@@ -325,19 +381,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RESTful</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTPAuth</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
         		</li>
       		
 		</ul>
@@ -393,7 +441,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2020/02/21/随笔/Commit message 和 Change log 编写指南/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -408,18 +456,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/04/16/随笔/简单介绍回调函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          简单介绍回调函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/15/flask/理解Flasky应用编程接口/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">理解Flasky应用编程接口</div>
+    <a href="/2020/02/21/随笔/由内而外的Git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">由内而外的Git</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -446,7 +485,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#梳理Flasky应用的HTTPAuth验证用户身份逻辑"><span class="toc-number">1.</span> <span class="toc-text">梳理Flasky应用的HTTPAuth验证用户身份逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPAuth验证流程"><span class="toc-number">1.1.</span> <span class="toc-text">HTTPAuth验证流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证身份模块"><span class="toc-number">1.2.</span> <span class="toc-text">验证身份模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置蓝本全局路由保护"><span class="toc-number">1.2.1.</span> <span class="toc-text">设置蓝本全局路由保护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加verify-password回调函数"><span class="toc-number">1.2.2.</span> <span class="toc-text">添加verify_password回调函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源权限验证"><span class="toc-number">1.3.</span> <span class="toc-text">资源权限验证</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Commit-message-和-Change-log-编写指南"><span class="toc-number">1.</span> <span class="toc-text">Commit message 和 Change log 编写指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Commit-message-的作用"><span class="toc-number">1.1.</span> <span class="toc-text">一、Commit message 的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Commit-message-的格式"><span class="toc-number">1.2.</span> <span class="toc-text">二、Commit message 的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Header"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 Header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Body"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 Body</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Footer"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 Footer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Revert"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 Revert</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Commitizen"><span class="toc-number">1.3.</span> <span class="toc-text">三、Commitizen</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、validate-commit-msg"><span class="toc-number">1.4.</span> <span class="toc-text">四、validate-commit-msg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、生成-Change-log"><span class="toc-number">1.5.</span> <span class="toc-text">五、生成 Change log</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -473,9 +512,9 @@
     <script src="/lib/gitment.js"></script>
   
   <script>
-    <!-- id: "梳理HTTPAuth验证用户身份逻辑" -->
+    <!-- id: "Commit message 和 Change log 编写指南" -->
     var gitment = new Gitment({
-      id: "20190415153800",
+      id: "20200221194000",
       owner: 'imdreamer2018',
       repo: 'blog',
       oauth: {

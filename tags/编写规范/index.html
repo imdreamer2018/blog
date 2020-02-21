@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://dreamer.im">
-  <title>梳理HTTPAuth验证用户身份逻辑 | 追梦人的博客</title>
+  <title>Tag: 编写规范 | 追梦人的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
-<meta name="keywords" content="python,Flask,RESTful,HTTPAuth">
-<meta property="og:type" content="article">
-<meta property="og:title" content="梳理HTTPAuth验证用户身份逻辑">
-<meta property="og:url" content="http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/index.html">
+  <meta name="description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="追梦人的博客">
+<meta property="og:url" content="http://dreamer.im/tags/编写规范/index.html">
 <meta property="og:site_name" content="追梦人的博客">
-<meta property="og:description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
+<meta property="og:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/15/Aj0tLF.png">
-<meta property="og:updated_time" content="2020-02-21T05:01:49.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="梳理HTTPAuth验证用户身份逻辑">
-<meta name="twitter:description" content="梳理Flasky应用的HTTPAuth验证用户身份逻辑在上一节博客中，介绍到了Flasky应用编程接口，前面说过，REST式Web服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。 Flasky应用当前的登陆功能是在Flask-Login的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/15/Aj0tLF.png">
+<meta name="twitter:title" content="追梦人的博客">
+<meta name="twitter:description" content="关于个人学习Python的博客，把平时学的东西记录下来，方便自己以后查看。">
   
     <link rel="alternative" href="/atom.xml" title="追梦人的博客" type="application/atom+xml">
   
@@ -201,294 +197,69 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/02/21/随笔/Commit message 和 Change log 编写指南/" class="archive-article-date">
+        <time datetime="2020-02-21T11:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/02/21/随笔/Commit message 和 Change log 编写指南/" target="_blank">Commit message 和 Change log 编写指南</a>
   
-    <h1 class="article-title" itemprop="name">
-      梳理HTTPAuth验证用户身份逻辑
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" class="archive-article-date">
-        <time datetime="2019-04-15T07:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-15</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.9k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="梳理Flasky应用的HTTPAuth验证用户身份逻辑"><a href="#梳理Flasky应用的HTTPAuth验证用户身份逻辑" class="headerlink" title="梳理Flasky应用的HTTPAuth验证用户身份逻辑"></a>梳理Flasky应用的HTTPAuth验证用户身份逻辑</h1><p>在上一节博客中，介绍到了Flasky应用编程接口，前面说过，<code>REST</code>式<code>Web</code>服务的特征之一是无状态，即服务器在两次请求之间不能“记住”客户端的任何信息。客户端必须在发出的请求中包含所有必要信息，因此所有请求都必须包含用户凭据。</p>
-<p><code>Flasky</code>应用当前的登陆功能是在<code>Flask-Login</code>的帮助下实现的，数据存储在用户会话中。默认情况下，Flask把会话保存在客户端<code>cookie</code>中，因此服务器没有保存任何用户相关信息，都转交给客户端保存。这种实现方式看起来遵守了<code>REST</code>架构的无状态要求，但在<code>REST</code>式<code>We</code>b服务中使用<code>cookie</code>有点不现实，因为Web浏览器之外的客户端很难提供对<code>cookie</code>的支持。鉴于此，在API中使用<code>cookie</code>并不是一个很好的设计选择。</p>
-<a id="more"></a>
-<blockquote>
-<p><code>REST</code>架构的无状态要求看起来似乎获取严格，但这并不是随意提出的要求——无状态的服务器<strong>伸缩</strong>起来更加简单。如果服务器保存了客户端的相关信息，那么必须保证特定客户端发送的请求由同一台服务器处理，或者使用共享存储器客户端数据。这两点都难以实现，但是如果服务器式无状态的，这两个问题就不复存在。</p>
-</blockquote>
-<p>因为<code>REST</code>架构基于<code>HTTP</code>协议，所以发送凭据的最佳方式式使用<strong><code>HTTP</code>身份验证</strong>，基本验证和摘要验证都可以。在<code>HTTP</code>身份验证中，用户凭据包含在每个请求的<code>Authorization</code>首部中。</p>
-<p><code>HTTP</code>身份验证协议很简单，可以直接实现，不过<code>Flask-HTTPAuth</code>扩展提供了一个遍历的包装，把协议的细节隐藏在装饰器之中，类似于<code>Flask-Login</code>提供的<code>login_required</code>装饰器。</p>
-<h2 id="HTTPAuth验证流程"><a href="#HTTPAuth验证流程" class="headerlink" title="HTTPAuth验证流程"></a>HTTPAuth验证流程</h2><p><img src="https://s2.ax1x.com/2019/04/15/Aj0tLF.png" alt="Aj0tLF.png"></p>
-<p>由于每次访问资源都需要登陆验证，所以这里每次访问是需要将用户凭据包含在每个请求的<code>Authorization</code>首部中。</p>
-<h2 id="验证身份模块"><a href="#验证身份模块" class="headerlink" title="验证身份模块"></a>验证身份模块</h2><p>这里我们利用了<code>Flask-HTTPAuth</code>扩展提供装饰器。当我们需要访问资源的时候，将用户凭据包含在每个请求的<code>Authorization</code>首部中，如果没有通过验证就无法访问资源。这里需要在<code>before_request</code>处理程序中使用<code>login_required</code>装饰器。</p>
-<h3 id="设置蓝本全局路由保护"><a href="#设置蓝本全局路由保护" class="headerlink" title="设置蓝本全局路由保护"></a>设置蓝本全局路由保护</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在before_request处理程序中验证身份</span></span><br><span class="line"><span class="meta">@api.before_request</span></span><br><span class="line"><span class="meta">@auth.login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">before_request</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> g.current_user.is_anonymous <span class="keyword">and</span> <span class="keyword">not</span> g.current_user.confirmed:</span><br><span class="line">        <span class="keyword">return</span> forbidden(<span class="string">'Unconifrmed account'</span>)</span><br></pre></td></tr></table></figure>
-<p>其中<code>login_required</code>装饰器：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login_required</span><span class="params">(self, f)</span>:</span></span><br><span class="line"><span class="meta">    @wraps(f)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorated</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        auth = self.get_auth()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Flask normally handles OPTIONS requests on its own, but in the</span></span><br><span class="line">        <span class="comment"># case it is configured to forward those to the application, we</span></span><br><span class="line">        <span class="comment"># need to ignore authentication headers and let the request through</span></span><br><span class="line">        <span class="comment"># to avoid unwanted interactions with CORS.</span></span><br><span class="line">        <span class="keyword">if</span> request.method != <span class="string">'OPTIONS'</span>:  <span class="comment"># pragma: no cover</span></span><br><span class="line">            password = self.get_auth_password(auth)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.authenticate(auth, password):</span><br><span class="line">                <span class="comment"># Clear TCP receive buffer of any pending data</span></span><br><span class="line">                request.data</span><br><span class="line">                <span class="keyword">return</span> self.auth_error_callback()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f(*args, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> decorated</span><br></pre></td></tr></table></figure>
-<p>首先<code>self.get_auth()</code>得到首部<code>Authorization</code>。源码如下，这里得到首部字段，并且包装得到<code>auth</code>，并返回给<code>login_required</code>函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_auth</span><span class="params">(self)</span>:</span></span><br><span class="line">    auth = request.authorization</span><br><span class="line">    <span class="keyword">if</span> auth <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">and</span> <span class="string">'Authorization'</span> <span class="keyword">in</span> request.headers:</span><br><span class="line">        <span class="comment"># Flask/Werkzeug do not recognize any authentication types</span></span><br><span class="line">        <span class="comment"># other than Basic or Digest, so here we parse the header by</span></span><br><span class="line">        <span class="comment"># hand</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            auth_type, token = request.headers[<span class="string">'Authorization'</span>].split(</span><br><span class="line">                <span class="keyword">None</span>, <span class="number">1</span>)</span><br><span class="line">            auth = Authorization(auth_type, &#123;<span class="string">'token'</span>: token&#125;)</span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="comment"># The Authorization header is either empty or has no token</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># if the auth type does not match, we act as if there is no auth</span></span><br><span class="line">    <span class="comment"># this is better than failing directly, as it allows the callback</span></span><br><span class="line">    <span class="comment"># to handle special cases, like supporting multiple auth types</span></span><br><span class="line">    <span class="keyword">if</span> auth <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> auth.type.lower() != self.scheme.lower():</span><br><span class="line">        auth = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> auth</span><br></pre></td></tr></table></figure>
-<p>接下来需要<code>self.get_auth_password(auth)</code>得到auth中包含用户的用户密码。然后再调用<code>self.authenticate(auth, password)</code>去进行身份验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self, auth, stored_password)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> auth:</span><br><span class="line">        username = auth.username</span><br><span class="line">        client_password = auth.password</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        username = <span class="string">""</span></span><br><span class="line">        client_password = <span class="string">""</span></span><br><span class="line">    <span class="keyword">if</span> self.verify_password_callback:</span><br><span class="line">        <span class="keyword">return</span> self.verify_password_callback(username, client_password)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> auth:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">if</span> self.hash_password_callback:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            client_password = self.hash_password_callback(client_password)</span><br><span class="line">        <span class="keyword">except</span> TypeError:</span><br><span class="line">            client_password = self.hash_password_callback(username,</span><br><span class="line">                                                          client_password)</span><br><span class="line">    <span class="keyword">return</span> client_password <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> \</span><br><span class="line">        client_password == stored_password</span><br></pre></td></tr></table></figure>
-<p>这里我们会得到<code>auth.username</code>和<code>auth.password</code>。如果请求首部不包含<code>Authorization</code>，就将<code>username</code>和<code>client_password</code>设为空值。最后一步就是调用<code>self.verify_password_callback</code>回调函数进行验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTTPBasicAuth</span><span class="params">(HTTPAuth)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, scheme=None, realm=None)</span>:</span></span><br><span class="line">        super(HTTPBasicAuth, self).__init__(scheme <span class="keyword">or</span> <span class="string">'Basic'</span>, realm)</span><br><span class="line"></span><br><span class="line">        self.hash_password_callback = <span class="keyword">None</span></span><br><span class="line">        self.verify_password_callback = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">verify_password</span><span class="params">(self, f)</span>:</span></span><br><span class="line">        self.verify_password_callback = f</span><br><span class="line">        <span class="keyword">return</span> f</span><br></pre></td></tr></table></figure>
-<p>这里的<code>self.verify_password_callback</code>是回调函数，这里就需要我们手动写回调函数，然后将回调函数传入<code>verify_password</code>，然后再将函数回调给<code>verify_password_callback</code>。关于什么是回调函数，可以在我的博客中查看，链接地址：<a href="https://www.dreamer.im/2019/04/16/%E9%9A%8F%E7%AC%94/%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" target="_blank" rel="noopener">点击这儿</a>。</p>
-<h3 id="添加verify-password回调函数"><a href="#添加verify-password回调函数" class="headerlink" title="添加verify_password回调函数"></a>添加verify_password回调函数</h3><p>关于支持令牌身份验证，我还需在User模型中定义两个新方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/models.py 支持基于令牌的身份验证</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(UserMixin,db.Model)</span>:</span></span><br><span class="line">    <span class="comment">#...</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generate_auth_token</span><span class="params">(self,expiration)</span>:</span></span><br><span class="line">        s = Serializer(current_app.config[<span class="string">'SECRET_KEY'</span>],</span><br><span class="line">                       expires_in=expiration)</span><br><span class="line">        <span class="keyword">return</span> s.dumps(&#123;id&#125;:self.id).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="meta">	@staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">verify_auth_token</span><span class="params">(token)</span>:</span></span><br><span class="line">        s = Serializer(current_app.config[<span class="string">'SECRET_KEY'</span>])</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = s.loads(token)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">return</span> User.query.get(data[<span class="string">'id'</span>])</span><br></pre></td></tr></table></figure>
-<p>下面需要我们添加<code>verify_password</code>回调函数，并且该函数支持基于令牌的身份验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">auth = HTTPBasicAuth()</span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化Flask-HTTPAuth</span></span><br><span class="line"><span class="meta">@auth.verify_password</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">verify_password</span><span class="params">(email_or_token,password)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> email_or_token== <span class="string">''</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">if</span> password==<span class="string">''</span>:</span><br><span class="line">        g.current_user = User.verify_auth_token(email_or_token)</span><br><span class="line">        g.token_used = <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> g.current_user <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span></span><br><span class="line">    user = User.query.filter_by(email=email_or_token).first()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> user:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    g.current_user = user</span><br><span class="line">    g.token_used = <span class="keyword">False</span></span><br><span class="line">    <span class="keyword">return</span> user.verify_password(password)</span><br></pre></td></tr></table></figure>
-<p><code>generate_auth_token()</code>方法使用编码后的用户id字段值生成一个签名令牌，还制定了以秒为单位的过期时间。<code>verify_auth_token()</code>方法接受的参数式一个令牌，如果令牌有效就返回对于的用户。<code>verify_auth_token()</code>式静态方法，因为只有解码令牌后才能知道用户是谁。</p>
-<p>为了能够使用令牌验证请求，我们必须修改<code>Flask-HTTPAuth</code>提供的<code>verify_password</code>回调，除了普通的凭据之外，还要接受令牌。</p>
-<p>自此，身份验证模块还差最后一步，就是处理错误。当用户身份凭证不争取的时候，服务器需要向客户端返回401状态码。默认情况下，<code>Flask-HTTPAuth</code>自动生成这个状态码，但为了与API返回的其他状态码保持一致，我们可以自定义这个错误响应。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/authentication.py Flask-HTTPAuth错误处理程序</span></span><br><span class="line"><span class="keyword">from</span> .errors <span class="keyword">import</span> unauthorized</span><br><span class="line"></span><br><span class="line"><span class="meta">@auth.error_handler</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auth_error</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> unauthorized(<span class="string">'Invalid credentials'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/errors.py API蓝本中各错误状态码的错误处理程序</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br><span class="line"><span class="keyword">from</span> app.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> api</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bad_request</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'bad request'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">400</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unauthorized</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'unauthorized'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">401</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forbidden</span><span class="params">(message)</span>:</span></span><br><span class="line">    response = jsonify(&#123;<span class="string">'error'</span>:<span class="string">'forbidden'</span>,<span class="string">'message'</span>:message&#125;)</span><br><span class="line">    response.status_code = <span class="number">403</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"><span class="meta">@api.app_errorhandler(ValidationError)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validation_error</span><span class="params">(e)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> bad_request(e.args[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p>到此，身份验证模块已介绍完毕。当请求每个资源的时候，需要每次加上请求首部才能访问资源。</p>
-<h2 id="资源权限验证"><a href="#资源权限验证" class="headerlink" title="资源权限验证"></a>资源权限验证</h2><p>我们可以利用之前写好的权限，在api蓝本中加上一个资源权限验证的装饰器<code>permission_required</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#app/api/decorators.py 资源权限验证装饰器</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> g</span><br><span class="line"><span class="keyword">from</span> .errors <span class="keyword">import</span> forbidden</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permission_required</span><span class="params">(permission)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(f)</span>:</span></span><br><span class="line"><span class="meta">        @wraps(f)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">decorated_function</span><span class="params">(*args,**kwargs)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> g.current_user.can(permission):</span><br><span class="line">                <span class="keyword">return</span> forbidden(<span class="string">'Insufficient permissions'</span>)</span><br><span class="line">            <span class="keyword">return</span> f(*args,**kwargs)</span><br><span class="line">        <span class="keyword">return</span> decorated_function</span><br><span class="line">    <span class="keyword">return</span> decorator</span><br></pre></td></tr></table></figure>
-<p>在进行某些资源权限认证时加上<code>@permission.required</code>就可以了。例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一篇文章博客</span></span><br><span class="line"><span class="meta">@api.route('/posts/',methods=['POST'])</span></span><br><span class="line"><span class="meta">@permission_required(Permission.WRITE)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_post</span><span class="params">()</span>:</span></span><br><span class="line">    post = Post.from_json(request.json)</span><br><span class="line">    post.author = g.current_user</span><br><span class="line">    db.session.add(post)</span><br><span class="line">    db.session.commit()</span><br><span class="line">    <span class="comment">#返回201状态码，并把Location首部的值设为刚创建的这个资源的URL</span></span><br><span class="line">    <span class="comment">#为了方便客户端操作，相应的主体中包含了新建的资源</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(post.to_json()), <span class="number">201</span> ,&#123;<span class="string">'Location'</span>:url_for(<span class="string">'api.get_post'</span>,id=post.id)&#125;</span><br></pre></td></tr></table></figure>
-
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          追梦人
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" title="梳理HTTPAuth验证用户身份逻辑" target="_blank">http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Flask</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RESTful</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HTTPAuth</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编写规范</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://dreamer.im/2019/04/15/flask/梳理Flasky应用的HTTPAuth验证用户身份逻辑/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2019/04/16/随笔/简单介绍回调函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          简单介绍回调函数
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/04/15/flask/理解Flasky应用编程接口/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">理解Flasky应用编程接口</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#梳理Flasky应用的HTTPAuth验证用户身份逻辑"><span class="toc-number">1.</span> <span class="toc-text">梳理Flasky应用的HTTPAuth验证用户身份逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTPAuth验证流程"><span class="toc-number">1.1.</span> <span class="toc-text">HTTPAuth验证流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证身份模块"><span class="toc-number">1.2.</span> <span class="toc-text">验证身份模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置蓝本全局路由保护"><span class="toc-number">1.2.1.</span> <span class="toc-text">设置蓝本全局路由保护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加verify-password回调函数"><span class="toc-number">1.2.2.</span> <span class="toc-text">添加verify_password回调函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源权限验证"><span class="toc-number">1.3.</span> <span class="toc-text">资源权限验证</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-  
-  <div id="gitment-ctn"></div>
-  
-    <!-- 中文 -->
-    <link rel="stylesheet" href="/lib/gitment.css">
-    <script src="/lib/gitment.js"></script>
-  
-  <script>
-    <!-- id: "梳理HTTPAuth验证用户身份逻辑" -->
-    var gitment = new Gitment({
-      id: "20190415153800",
-      owner: 'imdreamer2018',
-      repo: 'blog',
-      oauth: {
-        client_id: '2c0301df22fec6fbd1ed',
-        client_secret: '6180bc6d9db604cae348e25913cee6b5becdff19',
-      },
-    })
-    gitment.render('gitment-ctn')
-  </script>
-
-
+    </div></section>
   
 
+    
 
 
           </div>
@@ -529,9 +300,9 @@
 	var yiliaConfig = {
 		mathjax: ture,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
