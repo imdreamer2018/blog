@@ -335,7 +335,7 @@
 <h3 id="使用itsdangerous生成确认令牌"><a href="#使用itsdangerous生成确认令牌" class="headerlink" title="使用itsdangerous生成确认令牌"></a>使用itsdangerous生成确认令牌</h3><p>确认邮件中最简单的确认链接是<code>http://www.example.com/auth/confirm/&lt;id&gt;</code>这种形式的URL，其中<id>是数据库分配给用户的数字id。用户点击链接后，处理这种路由的视图函数将确认收到的用户id，然后将用户状态更新为已确认。</id></p>
 <p>但这种实现方式显然不是很安全，只要用户能判断确认链接的格式，就可以随便指定URL中的数字，从而确认任意账户。解决方法是把URL中的<id>换成包含相同信息的令牌，但是只有服务器才能生成有效的确认URL。</id></p>
 <p>Flask使用加密的签名cookie保持用户会话，以防止被篡改。用户会话cookie中有一个由<code>itsdangerous</code>包生成的加密签名。如果用户会话内容被篡改，签名将不再与内容匹配，这样会使Flask销毁会话，然后重建一个。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask shell</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; from itsdangerous import TimedJSONWebSignatureSerializer as Serializer</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; s = Serializer(app.config['SECRET_KEY'],expires_in=3600)</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; token = s.dumps(&#123;'confirm':23&#125;)</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; token</span><br><span class="line">b'eyJhbGciOiJIUzUxMiIsImlhdCI6MTU1NDE4OTgxMiwiZXhwIjoxNTU0MTkzNDEyfQ.eyJjb25maXJtIjoyM30.8tsXoL9ar221F_MW5MRR7ifGE0J3duL_BF_0YZfbfIPjVks76hAjWa02CKZqZ177EvZp4VW4Hx5EzVwesWxydA'</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; data = s.loads(token)</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; data</span><br><span class="line">&#123;'confirm': 23&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask shell</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; from itsdangerous import TimedJSONWebSignatureSerializer as Serializer</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; s = Serializer(app.config[<span class="string">'SECRET_KEY'</span>],expires_in=3600)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; token = s.dumps(&#123;<span class="string">'confirm'</span>:23&#125;)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; token</span></span><br><span class="line">b'eyJhbGciOiJIUzUxMiIsImlhdCI6MTU1NDE4OTgxMiwiZXhwIjoxNTU0MTkzNDEyfQ.eyJjb25maXJtIjoyM30.8tsXoL9ar221F_MW5MRR7ifGE0J3duL_BF_0YZfbfIPjVks76hAjWa02CKZqZ177EvZp4VW4Hx5EzVwesWxydA'</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; data = s.loads(token)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; data</span></span><br><span class="line">&#123;'confirm': 23&#125;</span><br></pre></td></tr></table></figure>
 <p><code>itsdangerous</code>提供了多种生成令牌的方法。其中，<code>TimedJSONWebSignatureSerializer</code>类生成具有过期时间的<code>JSON Web</code>签名（JWS）。这个类的构造函数接受参数是一个密钥，在Flask应用中可使用<code>SECTER_KEY</code>设置。</p>
 <p><code>dumps()</code>方法为指定的数据生成一个加密签名，然后再对数据和签名进行序列化，生成令牌字符串。<code>expires_in</code>参数设置令牌过期时间，单位为秒。</p>
 <p>为了解码令牌，序列化对象提供了<code>loads()</code>方法，其唯一参数是令牌的字符串。这个方法会检验签名和过期时间，如果都有效，则返回原始数据。</p>
@@ -750,23 +750,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">(un)supervised Learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Linear Regression</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +770,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">(un)supervised Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">requests</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bs4</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,108 +798,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">七牛</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gunicorn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">HTTPAuth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">UserPermission</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UserProfile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flasky-API</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flask-Struct</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Flask-SQLAlchemy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Flask-Login</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">WebForm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Flask-mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">classification</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tensorboard</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">overfitting</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dropout
-​ ​</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ConvolutionNetwork</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">版本控制工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+                <a href="javascript:void(0)" class="js-tag color3">Linear Regression</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -911,11 +806,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Paper</a>
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,6 +834,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">版本控制工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SecretSharing</a>
               </li>
              
@@ -943,7 +850,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OAuth 2.0</a>
+                <a href="javascript:void(0)" class="js-tag color1">Paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,11 +870,108 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OAuth 2.0</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">agile development</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">敏捷开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tensorflow</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tensorboard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">classification</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ConvolutionNetwork</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">overfitting</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dropout
+​ ​</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gunicorn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">supervisor</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">HTTPAuth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">UserPermission</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UserProfile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">七牛</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flask-Struct</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flasky-API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">WebForm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Flask-Login</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Flask-mail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Flask-SQLAlchemy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">[object Object]</a>
               </li>
             
             <div class="clearfix"></div>
